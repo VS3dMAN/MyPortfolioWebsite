@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "earnscroll-site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "E:/Builds/EarnScroll/website", "-l", "4399"],
+      "port": 4399
+    }
+  ]
+}
