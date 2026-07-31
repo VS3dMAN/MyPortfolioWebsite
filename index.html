@@ -3,10 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Viraj Soni — 0-to-1 generalist working across AI, full-stack development, and cinematography. Specialises in building with Claude: multi-agent workflows, MCP servers, context engineering. Built EarnScroll, Coup, Splendor Duel and Radius; shoots commercial video and product photography.">
+<meta name="author" content="Viraj Soni">
+<link rel="preload" href="fonts/syne-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-400.woff2" as="font" type="font/woff2" crossorigin>
 <title>Viraj Soni — Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Viraj Soni — 0-to-1 generalist across AI, code and camera">
+<meta property="og:description" content="Specialises in building with Claude — multi-agent workflows, MCP servers, context engineering. Android apps, real-time web games, commercial video and product photography.">
+<meta property="og:image" content="images/portrait.webp">
+<meta property="og:image:alt" content="Portrait of Viraj Soni">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Viraj Soni — 0-to-1 generalist across AI, code and camera">
+<meta name="twitter:description" content="Specialises in building with Claude — multi-agent workflows, MCP servers, context engineering. Android apps, real-time web games, commercial video and product photography.">
+<meta name="twitter:image" content="images/portrait.webp">
+<link rel="preload" as="image" href="images/portrait.webp" fetchpriority="high">
+<noscript><style>.reveal,.reveal-left,.reveal-right{opacity:1!important;transform:none!important}</style></noscript>
 <style>
+/* Self-hosted, latin-subset. No third-party origin in the critical path. */
+@font-face{font-family:'Syne';src:url('fonts/syne-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap;}
+@font-face{font-family:'Syne';src:url('fonts/syne-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'Syne';src:url('fonts/syne-800.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap;}
+@font-face{font-family:'Space Grotesk';src:url('fonts/space-grotesk-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Space Grotesk';src:url('fonts/space-grotesk-500.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'Space Grotesk';src:url('fonts/space-grotesk-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('fonts/jetbrains-mono-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+
 /* ========== RESET & BASE ========== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -295,6 +317,133 @@ section { padding: 120px 48px; position: relative; }
   background: linear-gradient(to right, oklch(1 0 0 / 0.1), transparent);
 }
 
+/* ========== AI LAYER BAND ========== */
+/* Full-bleed: section has 48px side padding, so pull the band back out to the edges. */
+.ai-band {
+  padding: 96px 48px;
+  margin: 0;
+  border-top: 1px solid oklch(0.72 0.18 65 / 0.18);
+  border-bottom: 1px solid oklch(0.72 0.18 65 / 0.18);
+  background:
+    radial-gradient(ellipse 900px 400px at 20% 0%, oklch(0.72 0.18 65 / 0.07), transparent 70%),
+    linear-gradient(to bottom, oklch(0.72 0.18 65 / 0.045), oklch(0.72 0.18 65 / 0.015));
+  position: relative;
+  overflow: hidden;
+}
+.ai-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 72px;
+  align-items: start;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.ai-lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  margin-bottom: 36px;
+}
+.ai-lead em {
+  font-style: normal;
+  color: var(--accent);
+}
+.ai-lead .ai-lead-sub {
+  display: block;
+  margin-top: 18px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0;
+  color: var(--text-dim);
+}
+.ai-rule {
+  width: 64px; height: 2px;
+  background: linear-gradient(to right, var(--accent), transparent);
+  margin-bottom: 32px;
+}
+.ai-copy {
+  font-size: 1rem;
+  color: var(--text-dim);
+  line-height: 1.8;
+  max-width: 620px;
+}
+.ai-copy + .ai-copy { margin-top: 18px; }
+.ai-copy strong { color: var(--text); font-weight: 600; }
+
+/* Tool wall */
+.ai-tools { display: flex; flex-direction: column; gap: 20px; }
+.ai-tools-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dimmer);
+}
+.tool-anchor {
+  display: flex; align-items: center; gap: 20px;
+  padding: 22px 26px;
+  background: oklch(0.72 0.18 65 / 0.08);
+  border: 1px solid oklch(0.72 0.18 65 / 0.25);
+  border-radius: 14px;
+  transition: border-color 0.35s, background 0.35s, transform 0.35s;
+}
+.tool-anchor:hover {
+  border-color: oklch(0.72 0.18 65 / 0.5);
+  background: oklch(0.72 0.18 65 / 0.12);
+  transform: translateY(-2px);
+}
+.tool-anchor svg { width: 52px; height: 52px; fill: var(--accent); flex-shrink: 0; }
+.tool-anchor-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.tool-anchor-note {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.tool-tile {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 16px 6px;
+  background: var(--bg2);
+  border: 1px solid oklch(1 0 0 / 0.06);
+  border-radius: 10px;
+  transition: border-color 0.3s, transform 0.3s, background 0.3s;
+}
+.tool-tile:hover {
+  border-color: oklch(0.72 0.18 65 / 0.35);
+  background: var(--bg3);
+  transform: translateY(-3px);
+}
+.tool-tile svg {
+  width: 22px; height: 22px;
+  fill: var(--text-dim);
+  transition: fill 0.3s;
+}
+.tool-tile:hover svg { fill: var(--accent); }
+.tool-tile span {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.02em;
+  color: var(--text-dimmer);
+  text-align: center;
+  line-height: 1.2;
+  transition: color 0.3s;
+}
+.tool-tile:hover span { color: var(--text-dim); }
+
 /* ========== ABOUT ========== */
 .about-grid {
   display: grid;
@@ -419,7 +568,8 @@ section { padding: 120px 48px; position: relative; }
   border-radius: 4px;
 }
 .project-visual {
-  width: 100%; height: 280px;
+  /* 16:9 to match the source art exactly — a fixed height cropped the wider cards. */
+  width: 100%; aspect-ratio: 16 / 9;
   border-radius: 12px;
   background: repeating-linear-gradient(
     -45deg,
@@ -477,6 +627,7 @@ section { padding: 120px 48px; position: relative; }
   gap: 48px;
 }
 .creative-card {
+  min-width: 0; /* grid item: don't let max-content children (carousel track) blow out the row */
   padding: 40px;
   background: var(--bg2);
   border: 1px solid oklch(1 0 0 / 0.06);
@@ -522,6 +673,12 @@ section { padding: 120px 48px; position: relative; }
   font-family: var(--font-mono);
   font-size: 0.75rem;
   border: 1px solid oklch(1 0 0 / 0.06);
+  overflow: hidden;
+}
+.creative-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* ========== EXPERIENCE ========== */
@@ -679,6 +836,102 @@ footer {
   background: linear-gradient(to bottom, transparent, oklch(1 0 0 / 0.04), transparent);
 }
 
+/* ========== CREATIVE BUTTONS & MEDIA ========== */
+.creative-links { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+.btn-see-sm {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 22px;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  font-size: 0.82rem;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.btn-see-sm:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+.btn-see-sm.alt {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid oklch(1 0 0 / 0.15);
+}
+.btn-see-sm.alt:hover { border-color: var(--accent); box-shadow: none; }
+.creative-card.wide { grid-column: 1 / -1; }
+
+/* ========== REFRESH CAROUSEL ========== */
+.carousel-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.carousel-hint {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dimmer);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.carousel {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-radius: 10px;
+  border: 1px solid oklch(1 0 0 / 0.06);
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+.carousel::-webkit-scrollbar { display: none; }
+.carousel.dragging { cursor: grabbing; }
+.carousel.compact .carousel-track img { height: 150px; }
+.carousel-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+}
+/* Empty film strip = photos not supplied yet; render the standard placeholder. */
+.carousel:has(.carousel-track:empty) { cursor: default; -webkit-mask-image: none; mask-image: none; }
+.carousel-track:empty { width: 100%; }
+.carousel-track:empty::after {
+  content: 'catalog stills — awaiting photos';
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 150px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--bg3),
+    var(--bg3) 8px,
+    oklch(1 0 0 / 0.03) 8px,
+    oklch(1 0 0 / 0.03) 16px
+  );
+  color: var(--text-dimmer);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+.carousel-track img {
+  height: 240px;
+  width: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  pointer-events: none; /* let drags land on the scroller, not the image ghost */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ========== PERFORMANCE ========== */
+#about, #projects, #creative, #experience, #contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+  .hero::before, .contact-section::before, .scroll-line { animation: none; }
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
   nav { padding: 16px 24px; }
@@ -693,6 +946,11 @@ footer {
   .creative-grid { grid-template-columns: 1fr; }
   .exp-item { grid-template-columns: 1fr; gap: 8px; }
   .contact-section { padding: 100px 24px; }
+  .carousel-track img { height: 170px; }
+  .cursor-glow { display: none; }
+  .ai-band { padding: 72px 24px; }
+  .ai-grid { grid-template-columns: 1fr; gap: 48px; }
+  .tool-grid { grid-template-columns: repeat(3, 1fr); }
 }
 </style>
 </head>
@@ -705,13 +963,16 @@ footer {
 <nav id="mainNav">
   <div class="nav-logo">Viraj<span>.</span>S</div>
   <div class="nav-links">
-    <a href="#about">About</a>
+    <a href="#ai">AI</a>
     <a href="#projects">Projects</a>
     <a href="#creative">Creative Work</a>
     <a href="#experience">Experience</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
+
+<main>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -733,7 +994,7 @@ footer {
   <div class="hero-visual reveal-right stagger-3">
     <div style="position:relative;">
       <div class="portrait-frame">
-        <img src="images/portrait.jpg" alt="Viraj Soni">
+        <img src="images/portrait.webp" alt="Viraj Soni — portrait" width="900" height="1200" fetchpriority="high" decoding="async">
       </div>
       <div class="portrait-decor"></div>
     </div>
@@ -744,10 +1005,294 @@ footer {
   </div>
 </section>
 
+<!-- Icon sprite: brand marks inlined once, no network requests. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="i-claude" viewBox="0 0 24 24"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></symbol>
+<symbol id="i-openai" viewBox="0 0 24 24"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></symbol>
+<symbol id="i-googlegemini" viewBox="0 0 24 24"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></symbol>
+<symbol id="i-supabase" viewBox="0 0 24 24"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></symbol>
+<symbol id="i-vercel" viewBox="0 0 24 24"><path d="M24 22.525H0l12-21.05 12 21.05z"/></symbol>
+<symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+<symbol id="i-cloudflare" viewBox="0 0 24 24"><path d="M16.5088 16.8447c.1475-.5068.0908-.9707-.1553-1.3154-.2246-.3164-.6045-.499-1.0615-.5205l-8.6592-.1123a.1559.1559 0 0 1-.1333-.0713c-.0283-.042-.0351-.0986-.021-.1553.0278-.084.1123-.1484.2036-.1562l8.7359-.1123c1.0351-.0489 2.1601-.8868 2.5537-1.9136l.499-1.3013c.0215-.0561.0293-.1128.0147-.168-.5625-2.5463-2.835-4.4453-5.5499-4.4453-2.5039 0-4.6284 1.6177-5.3876 3.8614-.4927-.3658-1.1187-.5625-1.794-.499-1.2026.119-2.1665 1.083-2.2861 2.2856-.0283.31-.0069.6128.0635.894C1.5683 13.171 0 14.7754 0 16.752c0 .1748.0142.3515.0352.5273.0141.083.0844.1475.1689.1475h15.9814c.0909 0 .1758-.0645.2032-.1553l.12-.4268zm2.7568-5.5634c-.0771 0-.1611 0-.2383.0112-.0566 0-.1054.0415-.127.0976l-.3378 1.1744c-.1475.5068-.0918.9707.1543 1.3164.2256.3164.6055.498 1.0625.5195l1.8437.1133c.0557 0 .1055.0263.1329.0703.0283.043.0351.1074.0214.1562-.0283.084-.1132.1485-.204.1553l-1.921.1123c-1.041.0488-2.1582.8867-2.5527 1.914l-.1406.3585c-.0283.0713.0215.1416.0986.1416h6.5977c.0771 0 .1474-.0489.169-.126.1122-.4082.1757-.837.1757-1.2803 0-2.6025-2.125-4.727-4.7344-4.727"/></symbol>
+<symbol id="i-sentry" viewBox="0 0 24 24"><path d="M13.91 2.505c-.873-1.448-2.972-1.448-3.844 0L6.904 7.92a15.478 15.478 0 0 1 8.53 12.811h-2.221A13.301 13.301 0 0 0 5.784 9.814l-2.926 5.06a7.65 7.65 0 0 1 4.435 5.848H2.194a.365.365 0 0 1-.298-.534l1.413-2.402a5.16 5.16 0 0 0-1.614-.913L.296 19.275a2.182 2.182 0 0 0 .812 2.999 2.24 2.24 0 0 0 1.086.288h6.983a9.322 9.322 0 0 0-3.845-8.318l1.11-1.922a11.47 11.47 0 0 1 4.95 10.24h5.915a17.242 17.242 0 0 0-7.885-15.28l2.244-3.845a.37.37 0 0 1 .504-.13c.255.14 9.75 16.708 9.928 16.9a.365.365 0 0 1-.327.543h-2.287c.029.612.029 1.223 0 1.831h2.297a2.206 2.206 0 0 0 1.922-3.31z"/></symbol>
+<symbol id="i-adobephotoshop" viewBox="0 0 24 24"><path d="M9.85 8.42c-.37-.15-.77-.21-1.18-.2-.26 0-.49 0-.68.01-.2-.01-.34 0-.41.01v3.36c.14.01.27.02.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03.01-.31-.07-.62-.23-.89-.17-.26-.41-.46-.7-.57zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.899c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.391 11.65c-.399.56-.959.98-1.609 1.22-.68.25-1.43.34-2.25.34-.24 0-.4 0-.5-.01s-.24-.01-.43-.01v3.209c.01.07-.04.131-.11.141H5.52c-.08 0-.12-.041-.12-.131V6.42c0-.07.03-.11.1-.11.17 0 .33 0 .56-.01.24-.01.49-.01.76-.02s.56-.01.87-.02c.31-.01.61-.01.91-.01.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.149.42.229.85.229 1.3.001.86-.199 1.57-.6 2.13zm7.091 3.89c-.28.4-.671.709-1.12.891-.49.209-1.09.318-1.811.318-.459 0-.91-.039-1.359-.129-.35-.061-.7-.17-1.02-.32-.07-.039-.121-.109-.111-.189v-1.74c0-.029.011-.07.041-.09.029-.02.06-.01.09.01.39.23.8.391 1.24.49.379.1.779.15 1.18.15.38 0 .65-.051.83-.141.16-.07.27-.24.27-.42 0-.141-.08-.27-.24-.4-.16-.129-.489-.279-.979-.471-.51-.18-.979-.42-1.42-.719-.31-.221-.569-.51-.761-.85-.159-.32-.239-.67-.229-1.021 0-.43.12-.84.341-1.21.25-.4.619-.72 1.049-.92.469-.239 1.059-.349 1.769-.349.41 0 .83.03 1.24.09.3.04.59.12.86.23.039.01.08.05.1.09.01.04.02.08.02.12v1.63c0 .04-.02.08-.05.1-.09.02-.14.02-.18 0-.3-.16-.62-.27-.96-.34-.37-.08-.74-.13-1.12-.13-.2-.01-.41.02-.601.07-.129.03-.24.1-.31.2-.05.08-.08.18-.08.27s.04.18.101.26c.09.11.209.2.34.27.229.12.47.23.709.33.541.18 1.061.43 1.541.73.33.209.6.49.789.83.16.318.24.67.23 1.029.011.471-.129.94-.389 1.331z"/></symbol>
+<symbol id="i-adobelightroom" viewBox="0 0 24 24"><path d="M19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-6.99 16.389c0 .051-.029.09-.06.121-.03.02-.06.029-.101.029H6.26c-.11 0-.16-.061-.16-.18V6.44c-.01-.07.04-.13.11-.14h2c.05-.01.11.03.11.08v8.43h4.62c.101 0 .131.049.11.14l-.29 1.739zm6.25-7.859v1.95c0 .08-.05.11-.16.11-.649-.04-1.3.08-1.89.34-.2.09-.39.21-.54.37v5.1c0 .1-.04.14-.13.14h-1.95c-.08.01-.15-.04-.16-.119V11.14c0-.24 0-.49-.01-.75s-.01-.52-.02-.78c-.01-.22-.03-.44-.061-.66-.01-.05.02-.1.07-.11.01-.01.02-.01.04 0h1.75c.1 0 .18.07.21.16.04.07.07.15.08.23.02.1.039.21.05.31.01.11.021.23.021.36.299-.35.66-.64 1.069-.86.46-.25.97-.37 1.49-.36.069-.01.13.04.14.11.001.01.001.02.001.04z"/></symbol>
+<symbol id="i-davinciresolve" viewBox="0 0 24 24"><path d="M17.621 0 5.977.004c-1.37 0-2.756.345-3.762 1.11a4.925 4.925 0 0 0-1.61 2.003C.233 3.93 0 5.02 0 5.951l.012 12.2c.002 1.604.479 3.057 1.461 4.112.984 1.056 2.462 1.683 4.331 1.691L16.856 24c1.26.005 3.095-.036 4.303-.714 1.075-.605 2.025-1.556 2.497-2.984.278-.84.345-2.084.344-3.147l-.021-11.13c-.002-.888-.15-2.023-.547-2.934-.425-.976-1.181-1.815-2.322-2.425C20.353.26 19.123 0 17.622 0zm0 .93c1.378 0 2.538.295 3.04.565.977.523 1.544 1.166 1.889 1.96.315.721.47 1.793.473 2.572l.018 11.13c.002 1.013-.097 2.257-.298 2.86-.396 1.202-1.146 1.946-2.063 2.462-.814.457-2.612.593-3.82.588l-11.05-.044c-1.657-.007-2.832-.534-3.626-1.386-.792-.851-1.212-2.06-1.212-3.485L.999 5.95c0-.829.196-1.827.474-2.437.345-.757.75-1.207 1.365-1.674C3.585 1.27 4.868.97 6.08.97zm-5.66 3.423c-1.976.089-3.204 1.658-3.214 3.29.019 1.443 1.635 3.481 2.884 4.53.12.099.154.109.33.18.062.025.198-.047.327-.135.36-.245.993-.947 1.648-1.738a7.67 7.67 0 0 0 1.031-1.683c.409-.89.261-1.599.235-1.888a3.983 3.983 0 0 0-.99-1.692 3.36 3.36 0 0 0-2.251-.864zm4.172 7.922a10.185 10.185 0 0 0-3.244.61c-.15.058-.26.1-.374.17-.057.036-.11.135-.105.292.017.433.29 1.278.624 2.27.384 1.135 1.066 2.27 1.844 2.74a3.23 3.23 0 0 0 2.53.342c.832-.243 1.595-.868 1.962-1.546.986-1.818.19-3.548-1.121-4.417-.447-.296-1.133-.445-1.89-.46-.074 0-.15-.002-.226-.001zm-8.432.038a6.201 6.201 0 0 0-.752.047c-.596.078-.932.273-1.29.51a3.177 3.177 0 0 0-1.365 1.979c-.075.552-.086 1.053.033 1.507.433 1.389 1.326 2.222 2.847 2.452.636.028 1.37-.063 1.99-.45 1.269-.782 2.08-3.17 2.412-4.742.053-.176.035-.357-.013-.42-.005-.067-.044-.113-.19-.183-.398-.192-1.32-.417-2.375-.6a7.68 7.68 0 0 0-1.297-.1z"/></symbol>
+<symbol id="i-blender" viewBox="0 0 24 24"><path d="M12.51 13.214c.046-.8.438-1.506 1.03-2.006a3.424 3.424 0 0 1 2.212-.79c.85 0 1.631.3 2.211.79.592.5.983 1.206 1.028 2.005.045.823-.285 1.586-.865 2.153a3.389 3.389 0 0 1-2.374.938 3.393 3.393 0 0 1-2.376-.938c-.58-.567-.91-1.33-.865-2.152M7.35 14.831c.006.314.106.922.256 1.398a7.372 7.372 0 0 0 1.593 2.757 8.227 8.227 0 0 0 2.787 2.001 8.947 8.947 0 0 0 3.66.76 8.964 8.964 0 0 0 3.657-.772 8.285 8.285 0 0 0 2.785-2.01 7.428 7.428 0 0 0 1.592-2.762 6.964 6.964 0 0 0 .25-3.074 7.123 7.123 0 0 0-1.016-2.779 7.764 7.764 0 0 0-1.852-2.043h.002L13.566 2.55l-.02-.015c-.492-.378-1.319-.376-1.86.002-.547.382-.609 1.015-.123 1.415l-.001.001 3.126 2.543-9.53.01h-.013c-.788.001-1.545.518-1.695 1.172-.154.665.38 1.217 1.2 1.22V8.9l4.83-.01-8.62 6.617-.034.025c-.813.622-1.075 1.658-.563 2.313.52.667 1.625.668 2.447.004L7.414 14s-.069.52-.063.831zm12.09 1.741c-.97.988-2.326 1.548-3.795 1.55-1.47.004-2.827-.552-3.797-1.538a4.51 4.51 0 0 1-1.036-1.622 4.282 4.282 0 0 1 .282-3.519 4.702 4.702 0 0 1 1.153-1.371c.942-.768 2.141-1.183 3.396-1.185 1.256-.002 2.455.41 3.398 1.175.48.391.87.854 1.152 1.367a4.28 4.28 0 0 1 .522 1.706 4.236 4.236 0 0 1-.239 1.811 4.54 4.54 0 0 1-1.035 1.626"/></symbol>
+<symbol id="i-make" viewBox="0 0 24 24"><path d="M13.38 3.498c-.27 0-.511.19-.566.465L9.85 18.986a.578.578 0 0 0 .453.678l4.095.826a.58.58 0 0 0 .682-.455l2.963-15.021a.578.578 0 0 0-.453-.678l-4.096-.826a.589.589 0 0 0-.113-.012zm-5.876.098a.576.576 0 0 0-.516.318L.062 17.697a.575.575 0 0 0 .256.774l3.733 1.877a.578.578 0 0 0 .775-.258l6.926-13.781a.577.577 0 0 0-.256-.776L7.762 3.658a.571.571 0 0 0-.258-.062zm11.74.115a.576.576 0 0 0-.576.576v15.426c0 .318.258.578.576.578h4.178a.58.58 0 0 0 .578-.578V4.287a.578.578 0 0 0-.578-.576Z"/></symbol>
+</svg>
+
+<!-- AI LAYER -->
+<section class="ai-band" id="ai">
+  <div class="section-header reveal">
+    <span class="section-number">01</span>
+    <h2 class="section-title">How I Work With AI</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="ai-grid">
+    <div>
+      <p class="ai-lead reveal">The work I'm proudest of <em>isn't on this page</em> — it's under contract, it isn't finished, and it doesn't go here until it's live.
+        <span class="ai-lead-sub">What's below came before it: built, linked, open to click through. It still holds up. It just isn't where I am anymore.</span>
+      </p>
+      <div class="ai-rule reveal stagger-1"></div>
+      <p class="ai-copy reveal stagger-1">I build with Claude the way an engineer builds with a compiler — not as a novelty, but as infrastructure. <strong>Most people prompt. I architect the context</strong>, constrain the model, and own what comes out the other side.</p>
+      <p class="ai-copy reveal stagger-2">Multi-agent workflows, MCP servers, context engineering, retrieval, evals — plus the engineering background to catch the model when it's confidently wrong, which is the part that actually matters. It's the difference between <strong>using AI and building with it</strong>.</p>
+    </div>
+    <div class="ai-tools reveal-right stagger-1">
+      <div class="ai-tools-label">Daily stack</div>
+      <div class="tool-anchor">
+        <svg aria-hidden="true"><use href="#i-claude"></use></svg>
+        <div>
+          <div class="tool-anchor-name">Claude</div>
+          <div class="tool-anchor-note">Primary environment — architecture, code, and the agents built around it.</div>
+        </div>
+      </div>
+      <div class="tool-grid">
+        <div class="tool-tile"><svg aria-hidden="true"><use href="#i-openai"></use></svg><span>ChatGPT</span></div>
+        <div class="tool-tile"><svg aria-hidden="true"><use href="#i-googlegemini"></use></svg><span>Gemini</span></div>
+        <div class="tool-tile"><svg aria-hidden="true"><use href="#i-github"></use></svg><span>GitHub</span></div>
+        <div class="tool-tile"><svg aria-hidden="true"><use href="#i-supabase"></use></svg><span>Supabase</span></div>
+        <div class="tool-tile"><svg aria-hidden="true"><use href="#i-vercel"></use></svg><span>Vercel</span></div>
+        <div class="tool-tile"><svg aria-hidden="true"><use href="#i-cloudflare"></use></svg><span>Cloudflare</span></div>
+        <div class="tool-tile"><svg aria-hidden="true"><use href="#i-sentry"></use></svg><span>Sentry</span></div>
+        <div class="tool-tile"><svg aria-hidden="true"><use href="#i-make"></use></svg><span>Make</span></div>
+        <div class="tool-tile"><svg aria-hidden="true"><use href="#i-adobephotoshop"></use></svg><span>Photoshop</span></div>
+        <div class="tool-tile"><svg aria-hidden="true"><use href="#i-adobelightroom"></use></svg><span>Lightroom</span></div>
+        <div class="tool-tile"><svg aria-hidden="true"><use href="#i-davinciresolve"></use></svg><span>DaVinci</span></div>
+        <div class="tool-tile"><svg aria-hidden="true"><use href="#i-blender"></use></svg><span>Blender</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Things I've Built</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-list">
+
+    <div class="project-card reveal">
+      <div>
+        <div class="project-number">01</div>
+        <div class="project-tags">
+          <span class="project-tag">Mobile App</span>
+          <span class="project-tag">Health Tech</span>
+          <span class="project-tag">AI-Built</span>
+        </div>
+        <h3 class="project-name">EarnScroll</h3>
+        <p class="project-desc">A mobile app that flips the attention economy — earn screen time by completing exercise. Squats, pushups, and planks unlock your apps.<br><br>This isn't a weekend hack. It's a fully production-ready Android application with integrated payment gateways, complete legal documentation, and deep system-level access that controls which apps you can open and when. Exercise detection, a real-time reward engine, onboarding flows, edge-case handling — every layer you'd expect from a shipped consumer product, built and deployed solo from first commit to Play Store.</p>
+        <a href="https://earnscroll-website.vercel.app/" target="_blank" rel="noopener" class="btn-see">See Now ↗</a>
+        <div class="project-tech">
+          <span class="tech-pill">React Native</span>
+          <span class="tech-pill">Expo</span>
+          <span class="tech-pill">Claude Code</span>
+          <span class="tech-pill">Google Antigravity</span>
+        </div>
+      </div>
+      <div class="project-visual"><img src="images/earnscroll.webp" alt="EarnScroll — Android screen-time app banner" width="1280" height="720" loading="lazy" decoding="async"></div>
+    </div>
+
+    <div class="project-card reveal">
+      <div>
+        <div class="project-number">02</div>
+        <div class="project-tags">
+          <span class="project-tag">Full-Stack</span>
+          <span class="project-tag">Multiplayer</span>
+          <span class="project-tag">Real-Time</span>
+        </div>
+        <h3 class="project-name">Coup</h3>
+        <p class="project-desc">The classic bluffing card game — rebuilt for the browser, end to end. Full-stack with a Node.js backend, WebSocket layer handling real-time game state across all connected players, and a clean frontend keeping every action, bluff, and challenge in sync without a single page reload.</p>
+        <a href="https://coup-client-pi.vercel.app/" target="_blank" rel="noopener" class="btn-see">See Now ↗</a>
+        <div class="project-tech">
+          <span class="tech-pill">Node.js</span>
+          <span class="tech-pill">WebSockets</span>
+          <span class="tech-pill">Claude Code</span>
+          <span class="tech-pill">Google Antigravity</span>
+        </div>
+      </div>
+      <div class="project-visual"><img src="images/coup.webp" alt="Coup — browser multiplayer card game poster" width="1280" height="720" loading="lazy" decoding="async"></div>
+    </div>
+
+    <div class="project-card reveal">
+      <div>
+        <div class="project-number">03</div>
+        <div class="project-tags">
+          <span class="project-tag">Board Game</span>
+          <span class="project-tag">Multiplayer</span>
+          <span class="project-tag">Live</span>
+        </div>
+        <h3 class="project-name">Splendor Duel</h3>
+        <p class="project-desc">The gem-trading duel rebuilt for the browser — then stretched far past its two-player box limits. Plays 2 to 8, free-for-all at every size, teams at the even ones, with a rules engine parameterised by seat count so the economy holds at any table.<br><br>This one is engineered, not just built: a fuzzer hammers the engine for deadlocks, a chaos suite attacks the UI, and a heuristic bot played 800 games per table size to prove seat fairness before anything shipped. Turn clock with auto-move, lobby with live seat management, full light/dark theme — running serverless on Cloudflare Workers.</p>
+        <a href="https://splendor-duel.jvtandbros.workers.dev" target="_blank" rel="noopener" class="btn-see">See Now ↗</a>
+        <div class="project-tech">
+          <span class="tech-pill">Cloudflare Workers</span>
+          <span class="tech-pill">Real-Time</span>
+          <span class="tech-pill">Claude Code</span>
+        </div>
+      </div>
+      <div class="project-visual"><img src="images/splendorduel.webp" alt="Splendor Duel — browser board game key visual" width="1280" height="720" loading="lazy" decoding="async"></div>
+    </div>
+
+    <div class="project-card reveal">
+      <div>
+        <div class="project-number">04</div>
+        <div class="project-tags">
+          <span class="project-tag">Hackathon Winner</span>
+          <span class="project-tag">Platform</span>
+          <span class="project-tag">Two-Sided</span>
+        </div>
+        <h3 class="project-name">Radius</h3>
+        <p class="project-desc">My first hackathon — and the one I won. A two-sided local events platform: neighborhood-filtered feeds for people looking for something to do, and a live-pricing ad engine with citywide targeting and bulk discounts for the organizers who need a crowd.<br><br>Built end to end under hackathon pressure, and the idea has outlasted the weekend it was made in. It's still a build I intend to take further into a real product.</p>
+        <a href="https://tp-1-sigma.vercel.app/" target="_blank" rel="noopener" class="btn-see">See Now ↗</a>
+        <div class="project-tech">
+          <span class="tech-pill">Google AI Studio</span>
+          <span class="tech-pill">Full-Stack</span>
+          <span class="tech-pill">Ad Engine</span>
+        </div>
+      </div>
+      <div class="project-visual"><img src="images/radius.webp" alt="Radius — hyperlocal events platform key visual" width="1280" height="720" loading="lazy" decoding="async"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CREATIVE WORK -->
+<section id="creative">
+  <div class="section-header reveal">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Creative Work</h2>
+    <div class="section-line"></div>
+  </div>
+  <p class="creative-header-text reveal">The technical stuff lives above. This is the work that feels like something — warm light, sharp cuts, and the exact frame that makes a brand click.</p>
+  <div class="creative-grid">
+    <div class="creative-card wide reveal stagger-1">
+      <div class="creative-card-label">Showcase 01 · Refresh Fragrances</div>
+      <h3 class="creative-card-title">AI-Assisted Product Photography, the Hard Way</h3>
+      <p class="creative-card-desc">Over <strong style="color:var(--text)">600 production images</strong> created for Refresh Fragrances — a fragranced soaps and Ayurveda cosmetics brand — powering their social media, website, and a full identity revamp. Built before generative AI became plug-and-play: when raw model output wasn't usable on its own, every image was rescued and finished by hand in Photoshop — compositing, correcting, and colour-matching until it looked like a product shoot, not a prompt.</p>
+      <div class="carousel-head">
+        <span class="carousel-hint">Drag to explore · 18 of 600+</span>
+        <a href="refresh-fragrances.html" class="btn-see-sm alt">See All ↗</a>
+      </div>
+      <div class="carousel" id="refreshCarousel" aria-label="Refresh Fragrances product imagery">
+        <div class="carousel-track" id="refreshTrack">
+          <img src="images/refresh/1-amber-rose-mk2-sm.webp" alt="Amber Rose — Refresh Fragrances product visual" width="640" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/2-mogra-mk2-sm.webp" alt="Mogra — Refresh Fragrances product visual" width="361" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/4-blueberry-mk1-sm.webp" alt="Blueberry — Refresh Fragrances product visual" width="360" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/5-cool-water-mk5.webp" alt="Cool Water — Refresh Fragrances product visual" width="720" height="405" loading="lazy" decoding="async">
+          <img src="images/refresh/6-coconut-milk-honey-mk1-sm.webp" alt="Coconut Milk and Honey — Refresh Fragrances product visual" width="640" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/7-coffee-mk1-sm.webp" alt="Coffee — Refresh Fragrances product visual" width="360" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/8-green-tea-lemon-grass-mk1-sm.webp" alt="Green Tea and Lemongrass — Refresh Fragrances product visual" width="640" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/9-honey-scrub-mk1-sm.webp" alt="Honey Scrub — Refresh Fragrances product visual" width="640" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/11-multani-mitti-mk2-sm.webp" alt="Multani Mitti — Refresh Fragrances product visual" width="640" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/13-almond-milk-saffron-mk2-sm.webp" alt="Almond Milk and Saffron — Refresh Fragrances product visual" width="638" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/14-jasmine-mk1-sm.webp" alt="Jasmine — Refresh Fragrances product visual" width="640" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/14-neem-scrub-mk1-sm.webp" alt="Neem Scrub — Refresh Fragrances product visual" width="640" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/15-apricot-scrub-mk1-sm.webp" alt="Apricot Scrub — Refresh Fragrances product visual" width="640" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/16-oudh-wood-mk1-sm.webp" alt="Oudh Wood — Refresh Fragrances product visual" width="360" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/17-kapoor-oil-mk3-sm.webp" alt="Kapoor Oil — Refresh Fragrances product visual" width="640" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/17-red-grapes-mk1-sm.webp" alt="Red Grapes — Refresh Fragrances product visual" width="640" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/29-romantic-rose-mk1-sm.webp" alt="Romantic Rose — Refresh Fragrances product visual" width="639" height="480" loading="lazy" decoding="async">
+          <img src="images/refresh/34-tea-tree-mk2-sm.webp" alt="Tea Tree — Refresh Fragrances product visual" width="640" height="480" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+
+    <div class="creative-card reveal stagger-2">
+      <div class="creative-card-label">Showcase 02</div>
+      <h3 class="creative-card-title">Commercial Videography</h3>
+      <p class="creative-card-desc">Commercial videography for interior design projects and personal cinematic shoots — capturing spaces, people, and moments with an eye for composition, pacing, and mood. Two cuts of the same body of work: the direct reel, and the organised, browsable archive.</p>
+      <div class="creative-links">
+        <a href="https://24x7-p1.vercel.app/" target="_blank" rel="noopener" class="btn-see-sm">View Direct Portfolio ↗</a>
+        <a href="https://24x7-p3.vercel.app/" target="_blank" rel="noopener" class="btn-see-sm alt">View Organised Portfolio ↗</a>
+      </div>
+      <div class="creative-media"><img src="images/videography.webp" alt="Commercial videography — cinema camera on set" width="1280" height="720" loading="lazy" decoding="async"></div>
+    </div>
+
+    <div class="creative-card reveal stagger-3">
+      <div class="creative-card-label">Showcase 03 · Premolc Industries</div>
+      <h3 class="creative-card-title">B2B Catalog Photography</h3>
+      <p class="creative-card-desc">A plastic moulding manufacturer needed their product range shot properly for an advertising catalog — no AI, no compositing, just the camera. Full lighting setup and gear, every part shot by hand in high definition, then built into the finished catalog. Precision work rather than pretty work: on a B2B floor, the job is making an industrial component read clean, consistent, and accurate. Premolc runs this imagery on their own site today.</p>
+      <div class="creative-links">
+        <a href="https://www.premolc.com/" target="_blank" rel="noopener" class="btn-see-sm alt">Visit Premolc ↗</a>
+      </div>
+      <div class="carousel-head">
+        <span class="carousel-hint">Drag to explore · catalog stills</span>
+        <a href="premolc.html" class="btn-see-sm alt">See All ↗</a>
+      </div>
+      <div class="carousel compact" aria-label="Premolc Industries catalog photography">
+        <div class="carousel-track">
+          <img src="images/premolc/p1-sm.webp" alt="Moulded pump impellers — Premolc catalog shot" width="427" height="320" loading="lazy" decoding="async">
+          <img src="images/premolc/p2-sm.webp" alt="Injection-moulded component range — Premolc catalog shot" width="427" height="320" loading="lazy" decoding="async">
+          <img src="images/premolc/p3-sm.webp" alt="Moulded structural parts — Premolc catalog shot" width="427" height="320" loading="lazy" decoding="async">
+          <img src="images/premolc/p4-sm.webp" alt="Moulded assembly components — Premolc catalog shot" width="427" height="320" loading="lazy" decoding="async">
+          <img src="images/premolc/p5-sm.webp" alt="Impeller range — Premolc catalog shot" width="427" height="320" loading="lazy" decoding="async">
+          <img src="images/premolc/p6-sm.webp" alt="Bearing cages and retainers — Premolc catalog shot" width="427" height="320" loading="lazy" decoding="async">
+          <img src="images/premolc/p7-sm.webp" alt="Automotive sensor housings and connectors — Premolc catalog shot" width="427" height="320" loading="lazy" decoding="async">
+          <img src="images/premolc/p8-sm.webp" alt="Moulded pulleys, gears and rollers — Premolc catalog shot" width="427" height="320" loading="lazy" decoding="async">
+          <img src="images/premolc/p9-sm.webp" alt="Precision moulded parts — Premolc catalog shot" width="427" height="320" loading="lazy" decoding="async">
+          <img src="images/premolc/p10-sm.webp" alt="Moulded component range — Premolc catalog shot" width="427" height="320" loading="lazy" decoding="async">
+          <img src="images/premolc/banner-1-sm.webp" alt="Injection mould tooling — Premolc catalog shot" width="427" height="320" loading="lazy" decoding="async">
+          <img src="images/premolc/banner-2-sm.webp" alt="Injection mould tool halves — Premolc catalog shot" width="427" height="320" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Where I've Operated</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="exp-list">
+    <div class="exp-item reveal">
+      <div class="exp-period">Currently<br>Scaling</div>
+      <div>
+        <div class="exp-role">Real-Time Multiplayer Games</div>
+        <div class="exp-org">Coup · Splendor Duel</div>
+        <p class="exp-desc">Two full board games shipped to the browser, end to end — game engines, live multiplayer state, lobbies, and the unglamorous edge cases that make online play actually hold up. Both live, both playable right now, and both still being sharpened.</p>
+        <span class="exp-tag-inline">Full-Stack & Game Logic</span>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-period">Agency &<br>Operations</div>
+      <div>
+        <div class="exp-role">Co-Founder</div>
+        <div class="exp-org">24x7 Productions</div>
+        <p class="exp-desc">Built from zero — client acquisition, team hiring, content pipelines, and delivery. 10+ interior design clients served. Every part of the business touched. See the work: <a href="https://24x7-p1.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent)">direct portfolio</a> · <a href="https://24x7-p3.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent)">organised portfolio</a>.</p>
+        <span class="exp-tag-inline">Growth & GTM</span>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-period">Media &<br>Marketing</div>
+      <div>
+        <div class="exp-role">Social Media Manager & Video Editor</div>
+        <div class="exp-org"><a href="https://sanshx.com/" target="_blank" rel="noopener">Sanshx ↗</a></div>
+        <p class="exp-desc">Owned the entire content engine — shooting, editing, posting, iterating. Startup pace. No handoffs, no waiting for approvals.</p>
+        <span class="exp-tag-inline">Content & Media</span>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-period">Community &<br>Leadership</div>
+      <div>
+        <div class="exp-role">Board of Directors — Two Terms</div>
+        <div class="exp-org"><a href="https://www.rcbibwewadipune.org/" target="_blank" rel="noopener">Rotaract Club of Bibwewadi ↗</a></div>
+        <p class="exp-desc">Elected to the board for two consecutive terms (2025–26 and 2026–27) — steering club direction while still doing the on-ground work: event logistics, flyer design, and execution.</p>
+        <span class="exp-tag-inline">Leadership</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section id="about">
   <div class="section-header reveal">
-    <span class="section-number">01</span>
+    <span class="section-number">05</span>
     <h2 class="section-title">About</h2>
     <div class="section-line"></div>
   </div>
@@ -806,176 +1351,85 @@ footer {
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-header reveal">
-    <span class="section-number">02</span>
-    <h2 class="section-title">Things I've Built</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="projects-list">
-
-    <div class="project-card reveal">
-      <div>
-        <div class="project-number">01</div>
-        <div class="project-tags">
-          <span class="project-tag">Mobile App</span>
-          <span class="project-tag">Health Tech</span>
-          <span class="project-tag">AI-Built</span>
-        </div>
-        <h3 class="project-name">EarnScroll</h3>
-        <p class="project-desc">A mobile app that flips the attention economy — earn screen time by completing exercise. Squats, pushups, and planks unlock your apps.<br><br>This isn't a weekend hack. It's a fully production-ready Android application with integrated payment gateways, complete legal documentation, and deep system-level access that controls which apps you can open and when. Exercise detection, a real-time reward engine, onboarding flows, edge-case handling — every layer you'd expect from a shipped consumer product, built and deployed solo from first commit to Play Store.</p>
-        <a href="https://earnscroll-website.vercel.app/" target="_blank" rel="noopener" class="btn-see">See Now ↗</a>
-        <div class="project-tech">
-          <span class="tech-pill">React Native</span>
-          <span class="tech-pill">Expo</span>
-          <span class="tech-pill">Claude Code</span>
-          <span class="tech-pill">Google Antigravity</span>
-        </div>
-      </div>
-      <div class="project-visual"><img src="images/earnscroll.png" alt="EarnScroll app banner"></div>
-    </div>
-
-    <div class="project-card reveal">
-      <div>
-        <div class="project-number">02</div>
-        <div class="project-tags">
-          <span class="project-tag">Full-Stack</span>
-          <span class="project-tag">Multiplayer</span>
-          <span class="project-tag">Real-Time</span>
-        </div>
-        <h3 class="project-name">Coup</h3>
-        <p class="project-desc">The classic bluffing card game — rebuilt for the browser, end to end. Full-stack with a Node.js backend, WebSocket layer handling real-time game state across all connected players, and a clean frontend keeping every action, bluff, and challenge in sync without a single page reload.</p>
-        <a href="https://coup-client-pi.vercel.app/" target="_blank" rel="noopener" class="btn-see">See Now ↗</a>
-        <div class="project-tech">
-          <span class="tech-pill">Node.js</span>
-          <span class="tech-pill">WebSockets</span>
-          <span class="tech-pill">Claude Code</span>
-          <span class="tech-pill">Google Antigravity</span>
-        </div>
-      </div>
-      <div class="project-visual"><img src="images/coup.png" alt="Coup — medieval strategy card game poster"></div>
-    </div>
-
-    <div class="project-card reveal">
-      <div>
-        <div class="project-number">03</div>
-        <div class="project-tags">
-          <span class="project-tag">Platform</span>
-          <span class="project-tag">AI-Built</span>
-          <span class="project-tag">Local Events</span>
-        </div>
-        <h3 class="project-name">Radius</h3>
-        <p class="project-desc">A two-sided local events platform for Pune and Mumbai — connecting people who want to go out with the people who need a crowd. Filtered neighborhood-level feeds for goers, a live-pricing ad engine with citywide targeting and bulk discounts for organizers. Built independently using Google AI Studio.</p>
-        <div class="project-tech">
-          <span class="tech-pill">Google AI Studio</span>
-          <span class="tech-pill">Full-Stack</span>
-          <span class="tech-pill">Ad Engine</span>
-        </div>
-      </div>
-      <div class="project-visual">platform preview</div>
-    </div>
-
-    <div class="project-card reveal">
-      <div>
-        <div class="project-number">04</div>
-        <div class="project-tags">
-          <span class="project-tag">Web Design</span>
-          <span class="project-tag">Visuals</span>
-          <span class="project-tag">Deployed</span>
-        </div>
-        <h3 class="project-name">Cinematography Portfolio</h3>
-        <p class="project-desc">An interactive, highly visual landing page built to showcase video work — featuring a custom 2×12 dynamic video grid to highlight aesthetics and editing flow.</p>
-        <div class="project-tech">
-          <span class="tech-pill">Vercel</span>
-          <span class="tech-pill">Front-End Dev</span>
-          <span class="tech-pill">Video Optimization</span>
-        </div>
-      </div>
-      <div class="project-visual">cinematography grid preview</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CREATIVE WORK -->
-<section id="creative">
-  <div class="section-header reveal">
-    <span class="section-number">03</span>
-    <h2 class="section-title">Creative Work</h2>
-    <div class="section-line"></div>
-  </div>
-  <p class="creative-header-text reveal">The technical stuff lives above. This is the work that feels like something — warm light, sharp cuts, and the exact frame that makes a brand click.</p>
-  <div class="creative-grid">
-    <div class="creative-card reveal stagger-1">
-      <div class="creative-card-label">Showcase 01</div>
-      <h3 class="creative-card-title">Commercial Video Editing</h3>
-      <p class="creative-card-desc">Commercial videography for interior design projects and personal cinematic shoots — capturing spaces, people, and moments with an eye for composition, pacing, and mood.</p>
-      <div class="creative-media">video reel grid</div>
-    </div>
-    <div class="creative-card reveal stagger-2">
-      <div class="creative-card-label">Showcase 02</div>
-      <h3 class="creative-card-title">Social Media & Graphic Design</h3>
-      <p class="creative-card-desc">AI-assisted product photography for Refresh Fragrances (a brand selling fragranced soaps and Ayurveda cosmetics) — Photoshop composites and heavy Gen AI usage turned into social media content and website assets, feeding a full brand identity revamp from shoot to ship.</p>
-      <div class="creative-media">design carousel</div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-header reveal">
-    <span class="section-number">04</span>
-    <h2 class="section-title">Where I've Operated</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="exp-list">
-    <div class="exp-item reveal">
-      <div class="exp-period">Current &<br>Distribution</div>
-      <div>
-        <div class="exp-role">Solo Founder — Distribution & Growth</div>
-        <div class="exp-org">EarnScroll</div>
-        <p class="exp-desc">The app is built and live on Android. Now the harder part — getting it into hands. Running distribution experiments, building the marketing engine, and figuring out what makes people care enough to download.</p>
-        <span class="exp-tag-inline">Growth & Marketing</span>
-      </div>
-    </div>
-    <div class="exp-item reveal">
-      <div class="exp-period">Agency &<br>Operations</div>
-      <div>
-        <div class="exp-role">Co-Founder</div>
-        <div class="exp-org">24x7 Productions</div>
-        <p class="exp-desc">Built from zero — client acquisition, team hiring, content pipelines, and delivery. 10+ interior design clients served. Every part of the business touched.</p>
-        <span class="exp-tag-inline">Growth & GTM</span>
-      </div>
-    </div>
-    <div class="exp-item reveal">
-      <div class="exp-period">Media &<br>Marketing</div>
-      <div>
-        <div class="exp-role">Social Media Manager & Video Editor</div>
-        <div class="exp-org">Sanshx</div>
-        <p class="exp-desc">Owned the entire content engine — shooting, editing, posting, iterating. Startup pace. No handoffs, no waiting for approvals.</p>
-        <span class="exp-tag-inline">Content & Media</span>
-      </div>
-    </div>
-    <div class="exp-item reveal">
-      <div class="exp-period">Community &<br>Leadership</div>
-      <div>
-        <div class="exp-role">Event Organizer / Member</div>
-        <div class="exp-org">Rotaract Club of Bibwewadi</div>
-        <p class="exp-desc">Logistics, flyer design, and on-ground execution for community events — the kind of work where showing up matters more than your title.</p>
-        <span class="exp-tag-inline">Leadership</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
-  <div class="contact-eyebrow reveal">05 · Let's Talk</div>
+  <div class="contact-eyebrow reveal">06 · Let's Talk</div>
   <h2 class="contact-headline reveal stagger-1">Open to the <em>Right Room</em></h2>
   <p class="contact-blurb reveal stagger-2">I'm most useful where the job description doesn't fully exist yet — somewhere between creative vision and technical execution. Whether you're building an AI tool, need a cinematic identity, or just need someone who figures things out — let's talk.</p>
   <a href="mailto:virajsoni24x7@gmail.com" class="contact-email reveal stagger-3">virajsoni24x7@gmail.com →</a>
 </section>
+
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "#viraj",
+      "name": "Viraj Soni",
+      "jobTitle": "Builder — AI, full-stack development and cinematography",
+      "email": "mailto:virajsoni24x7@gmail.com",
+      "image": "images/portrait.webp",
+      "description": "0-to-1 generalist working across AI, full-stack development and visual production. Specialises in building with Claude — multi-agent workflows, MCP servers, context engineering and evals — alongside Android and real-time web development, commercial videography and product photography.",
+      "knowsAbout": [
+        "Claude", "Anthropic MCP", "Multi-agent AI workflows", "Context engineering",
+        "Prompt engineering", "Evals", "Full-stack web development", "Android development",
+        "Real-time multiplayer systems", "Supabase", "Cloudflare Workers", "Vercel",
+        "Commercial videography", "Product photography", "Photoshop compositing"
+      ],
+      "sameAs": [
+        "https://splendor-duel.jvtandbros.workers.dev",
+        "https://coup-client-pi.vercel.app/",
+        "https://tp-1-sigma.vercel.app/",
+        "https://sanshx.com/",
+        "https://www.rcbibwewadipune.org/"
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "EarnScroll",
+      "creator": { "@id": "#viraj" },
+      "description": "Android app that makes screen time something you earn — on-device camera pose detection counts squats, pushups and planks, and distracting apps stay blocked until the earned time is banked."
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Coup",
+      "url": "https://coup-client-pi.vercel.app/",
+      "creator": { "@id": "#viraj" },
+      "description": "The bluffing card game rebuilt for the browser with real-time multiplayer."
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Splendor Duel",
+      "url": "https://splendor-duel.jvtandbros.workers.dev",
+      "creator": { "@id": "#viraj" },
+      "description": "The gem-trading duel rebuilt for the browser and extended to 2–8 players, free-for-all or teams, on a rules engine parameterised by seat count. Fuzz-tested for deadlocks, chaos-tested at the UI, and balance-proved by a heuristic bot across 800 games per table size. Runs serverless on Cloudflare Workers."
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Radius",
+      "url": "https://tp-1-sigma.vercel.app/",
+      "creator": { "@id": "#viraj" },
+      "description": "Hackathon-winning two-sided hyperlocal events platform: neighbourhood-filtered event feeds for attendees, and a live-pricing ad engine with citywide targeting and bulk discounts for organisers."
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Refresh Fragrances product imagery",
+      "creator": { "@id": "#viraj" },
+      "description": "Over 600 product images produced for a fragrance and skincare brand, made before generative AI was easy to work with and hand-finished in Photoshop."
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Premolc Industries product catalog",
+      "url": "https://www.premolc.com/",
+      "creator": { "@id": "#viraj" },
+      "description": "B2B advertising catalog for a plastic moulding manufacturer — every component shot by hand in high definition with a full lighting and camera setup, then built into the finished catalog. In use on the client's own site."
+    }
+  ]
+}
+</script>
 
 <!-- FOOTER -->
 <footer>
@@ -986,38 +1440,76 @@ footer {
 <script>
 // === SCROLL REVEAL ===
 function initReveal() {
+  let pending = new Set(document.querySelectorAll('.reveal, .reveal-left, .reveal-right'));
+  const show = el => { el.classList.add('visible'); pending.delete(el); obs.unobserve(el); };
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
-    });
+    entries.forEach(e => { if (e.isIntersecting) show(e.target); });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));
+  pending.forEach(el => obs.observe(el));
+
+  // A fast flick can carry an element past the viewport between two frames, so the
+  // observer never samples it as intersecting. Sweep anything already scrolled past.
+  let queued = false;
+  function sweep() {
+    queued = false;
+    pending.forEach(el => {
+      if (el.getBoundingClientRect().top < innerHeight) show(el);
+    });
+    if (!pending.size) removeEventListener('scroll', onScroll);
+  }
+  function onScroll() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(sweep);
+  }
+  addEventListener('scroll', onScroll, { passive: true });
 }
 
 // === NAV HIDE ON SCROLL ===
 let lastScroll = 0;
 function initNav() {
-  window.addEventListener('scroll', () => {
-    const st = window.scrollY;
-    document.getElementById('mainNav').classList.toggle('hidden', st > lastScroll && st > 120);
-    lastScroll = st;
+  const nav = document.getElementById('mainNav');
+  // Scroll fires far faster than the screen refreshes; collapse to one style write per frame.
+  let queued = false;
+  addEventListener('scroll', () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      const st = scrollY;
+      nav.classList.toggle('hidden', st > lastScroll && st > 120);
+      lastScroll = st;
+    });
+  }, { passive: true });
+}
+
+// === PREFETCH SUBPAGES ON INTENT ===
+function initPrefetch() {
+  document.querySelectorAll('a[href$=".html"]').forEach(a => {
+    a.addEventListener('pointerenter', () => {
+      const l = document.createElement('link');
+      l.rel = 'prefetch';
+      l.href = a.href;
+      document.head.appendChild(l);
+    }, { once: true });
   });
 }
 
 // === CURSOR GLOW ===
 function initCursor() {
   const glow = document.getElementById('cursorGlow');
-  let mx = 0, my = 0, cx = 0, cy = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  (function loop() {
+  let mx = 0, my = 0, cx = 0, cy = 0, raf = null;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    if (!raf) raf = requestAnimationFrame(loop);
+  }, { passive: true });
+  function loop() {
     cx += (mx - cx) * 0.08;
     cy += (my - cy) * 0.08;
     glow.style.left = cx + 'px';
     glow.style.top = cy + 'px';
-    requestAnimationFrame(loop);
-  })();
+    raf = (Math.abs(mx - cx) > 0.5 || Math.abs(my - cy) > 0.5) ? requestAnimationFrame(loop) : null;
+  }
 }
 
 // === PARALLAX on hero portrait ===
@@ -1030,14 +1522,105 @@ function initParallax() {
     const y = (e.clientY / window.innerHeight - 0.5) * 12;
     frame.style.transform = `translate(${x}px, ${y}px)`;
     decor.style.transform = `translate(${x * 0.5}px, ${y * 0.5}px)`;
+  }, { passive: true });
+}
+
+// === REFRESH CAROUSEL ===
+// Auto-drifts, but stays a real scroller: drag, swipe, or wheel through it any time.
+// Track is duplicated so scrollLeft can wrap seamlessly in either direction.
+function initCarousel() {
+  document.querySelectorAll('.carousel').forEach(setupCarousel);
+}
+
+function setupCarousel(el) {
+  const track = el.querySelector('.carousel-track');
+  if (!track || track.querySelectorAll('img').length < 2) return; // empty/placeholder strip
+  track.innerHTML += track.innerHTML;
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let half = 0;
+  const measure = () => { half = track.scrollWidth / 2; };
+  measure();
+  addEventListener('resize', measure, { passive: true });
+  track.querySelectorAll('img').forEach(img => {
+    if (!img.complete) img.addEventListener('load', measure, { once: true });
   });
+
+  let inView = false, dragging = false, resumeAt = 0, raf = null;
+  // scrollLeft is rounded to whole pixels on assignment, so a sub-pixel step has to
+  // accumulate in `pos` — incrementing scrollLeft directly would round away every frame.
+  let pos = 0;
+  function wrap() {
+    if (!half) return;
+    if (pos >= half) pos -= half;
+    else if (pos < 0) pos += half;
+  }
+
+  function drift(now) {
+    raf = requestAnimationFrame(drift);
+    if (dragging || now < resumeAt) return;
+    pos += 0.4;
+    wrap();
+    el.scrollLeft = pos;
+  }
+
+  // Only burn frames while the strip is actually on screen — off-screen the loop is
+  // cancelled outright rather than early-returning once per frame forever.
+  function setLoop(on) {
+    if (on && !raf && !reduce) raf = requestAnimationFrame(drift);
+    else if (!on && raf) { cancelAnimationFrame(raf); raf = null; }
+  }
+  new IntersectionObserver(e => { inView = e[0].isIntersecting; setLoop(inView); },
+    { threshold: 0 }).observe(el);
+
+  // Any manual input hands control over for a moment, then the drift resumes.
+  const hold = () => { resumeAt = performance.now() + 2000; };
+  const sync = () => {
+    if (!dragging && performance.now() >= resumeAt) return; // drift owns the position
+    pos = el.scrollLeft;
+    if (half && pos <= 0) { pos = half; el.scrollLeft = pos; }   // dragged off the left edge
+    else if (half && pos >= half) { pos -= half; el.scrollLeft = pos; }
+  };
+  el.addEventListener('wheel', hold, { passive: true });
+  el.addEventListener('touchstart', hold, { passive: true });
+  el.addEventListener('scroll', sync, { passive: true });
+
+  let startX = 0, startScroll = 0;
+  el.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    dragging = true;
+    startX = e.clientX;
+    startScroll = el.scrollLeft;
+    el.classList.add('dragging');
+    el.setPointerCapture(e.pointerId);
+  });
+  el.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    el.scrollLeft = startScroll - (e.clientX - startX);
+  });
+  const release = () => {
+    if (!dragging) return;
+    dragging = false;
+    hold();
+    el.classList.remove('dragging');
+  };
+  el.addEventListener('pointerup', release);
+  el.addEventListener('pointercancel', release);
 }
 
 // === INIT ===
 initReveal();
 initNav();
-initCursor();
-initParallax();
+initCarousel();
+initPrefetch();
+// Pointer-driven effects only on devices with a fine pointer — saves work on phones
+if (matchMedia('(hover: hover) and (pointer: fine)').matches &&
+    !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  initCursor();
+  initParallax();
+} else {
+  document.getElementById('cursorGlow').style.display = 'none';
+}
 </script>
 </body>
 </html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Premolc Industries — B2B product catalog photography by Viraj Soni. Injection-moulded components shot by hand in high definition.">
+<link rel="preload" href="fonts/syne-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<title>Premolc Industries — Viraj Soni</title>
+<style>
+/* Self-hosted, latin-subset. No third-party origin in the critical path. */
+@font-face{font-family:'Syne';src:url('fonts/syne-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap;}
+@font-face{font-family:'Syne';src:url('fonts/syne-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'Syne';src:url('fonts/syne-800.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap;}
+@font-face{font-family:'Space Grotesk';src:url('fonts/space-grotesk-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Space Grotesk';src:url('fonts/space-grotesk-500.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'Space Grotesk';src:url('fonts/space-grotesk-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('fonts/jetbrains-mono-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --accent: oklch(0.72 0.18 65);
+  --accent-dim: oklch(0.72 0.18 65 / 0.15);
+  --accent-glow: oklch(0.72 0.18 65 / 0.4);
+  --bg: #0a0a0f;
+  --bg2: #111118;
+  --bg3: #1a1a24;
+  --text: #e8e6e3;
+  --text-dim: #8a8a96;
+  --text-dimmer: #55556a;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--accent); color: var(--bg); }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: oklch(0.06 0.01 270 / 0.8);
+  backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid oklch(1 0 0 / 0.04);
+}
+.nav-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.02em; }
+.nav-logo span { color: var(--accent); }
+.nav-back {
+  font-size: 0.85rem; font-weight: 500; color: var(--text-dim);
+  transition: color 0.3s;
+}
+.nav-back:hover { color: var(--accent); }
+
+header.page-head {
+  padding: 160px 48px 64px;
+  position: relative;
+  overflow: hidden;
+}
+header.page-head::before {
+  content: '';
+  position: absolute;
+  top: -240px; right: -160px;
+  width: 640px; height: 640px;
+  background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
+  pointer-events: none;
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.eyebrow::before { content: ''; width: 32px; height: 1.5px; background: var(--accent); }
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  position: relative;
+}
+h1 em { font-style: italic; color: var(--accent); }
+.lede {
+  font-size: 1.02rem;
+  color: var(--text-dim);
+  max-width: 680px;
+  line-height: 1.8;
+  position: relative;
+}
+.lede strong { color: var(--text); font-weight: 600; }
+.stats {
+  display: flex; flex-wrap: wrap; gap: 40px;
+  margin-top: 48px;
+  position: relative;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dimmer);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+main { padding: 32px 48px 120px; }
+.grid {
+  columns: 3 300px;
+  column-gap: 20px;
+}
+.shot {
+  /* Off-screen figures skip layout, style and paint entirely. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 320px;
+  break-inside: avoid;
+  margin-bottom: 20px;
+  background: var(--bg2);
+  border: 1px solid oklch(1 0 0 / 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.4s, transform 0.4s;
+}
+.shot:hover { border-color: oklch(1 0 0 / 0.14); transform: translateY(-3px); }
+.shot img { width: 100%; height: auto; display: block; }
+.shot figcaption {
+  padding: 12px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dimmer);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+footer {
+  padding: 32px 48px;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  flex-wrap: wrap;
+  border-top: 1px solid oklch(1 0 0 / 0.06);
+  font-size: 0.8rem;
+  color: var(--text-dimmer);
+}
+footer a { color: var(--accent); }
+
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  header.page-head { padding: 120px 24px 48px; }
+  main { padding: 24px 24px 80px; }
+  .grid { columns: 2 160px; column-gap: 12px; }
+  .shot { margin-bottom: 12px; }
+  .stats { gap: 28px; }
+  footer { padding: 24px; }
+}
+</style>
+<noscript><style>.reveal,.reveal-left,.reveal-right{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Viraj<span>.</span>S</a>
+  <a href="index.html#creative" class="nav-back">← Back to Portfolio</a>
+</nav>
+
+<header class="page-head">
+  <div class="eyebrow">Client Work · B2B Catalog</div>
+  <h1>Premolc <em>Industries</em></h1>
+  <p class="lede">
+    A plastic moulding manufacturer needed their product range documented for an advertising catalog. No AI, no compositing, no retouching a component into something it isn'''t — just the camera, a full lighting setup, and every part shot by hand in high definition.
+    <br><br>
+    On a B2B floor the brief inverts: the job isn'''t to make a part look beautiful, it'''s to make it read <strong>clean, consistent and accurate</strong> against every other part in the range, so a buyer can trust what they'''re ordering. Premolc runs this imagery on their own site today.
+  </p>
+  <div class="stats">
+    <div><div class="stat-num">100%</div><div class="stat-label">Shot In-Camera</div></div>
+    <div><div class="stat-num">Full</div><div class="stat-label">Lighting &amp; Gear Setup</div></div>
+    <div><div class="stat-num">Live</div><div class="stat-label">In Client Catalog</div></div>
+  </div>
+</header>
+
+<main>
+  <div class="grid">
+      <figure class="shot"><img src="images/premolc/p1.webp" alt="Moulded pump impellers — Premolc catalog shot" width="760" height="570" loading="lazy" decoding="async"><figcaption>Moulded pump impellers</figcaption></figure>
+      <figure class="shot"><img src="images/premolc/p2.webp" alt="Injection-moulded component range — Premolc catalog shot" width="760" height="570" loading="lazy" decoding="async"><figcaption>Injection-moulded component range</figcaption></figure>
+      <figure class="shot"><img src="images/premolc/p3.webp" alt="Moulded structural parts — Premolc catalog shot" width="760" height="570" loading="lazy" decoding="async"><figcaption>Moulded structural parts</figcaption></figure>
+      <figure class="shot"><img src="images/premolc/p4.webp" alt="Moulded assembly components — Premolc catalog shot" width="760" height="570" loading="lazy" decoding="async"><figcaption>Moulded assembly components</figcaption></figure>
+      <figure class="shot"><img src="images/premolc/p5.webp" alt="Impeller range — Premolc catalog shot" width="760" height="570" loading="lazy" decoding="async"><figcaption>Impeller range</figcaption></figure>
+      <figure class="shot"><img src="images/premolc/p6.webp" alt="Bearing cages and retainers — Premolc catalog shot" width="760" height="570" loading="lazy" decoding="async"><figcaption>Bearing cages and retainers</figcaption></figure>
+      <figure class="shot"><img src="images/premolc/p7.webp" alt="Automotive sensor housings — Premolc catalog shot" width="760" height="570" loading="lazy" decoding="async"><figcaption>Automotive sensor housings</figcaption></figure>
+      <figure class="shot"><img src="images/premolc/p8.webp" alt="Moulded pulleys, gears and rollers — Premolc catalog shot" width="760" height="570" loading="lazy" decoding="async"><figcaption>Moulded pulleys, gears and rollers</figcaption></figure>
+      <figure class="shot"><img src="images/premolc/p9.webp" alt="Precision moulded parts — Premolc catalog shot" width="760" height="570" loading="lazy" decoding="async"><figcaption>Precision moulded parts</figcaption></figure>
+      <figure class="shot"><img src="images/premolc/p10.webp" alt="Moulded component range — Premolc catalog shot" width="760" height="570" loading="lazy" decoding="async"><figcaption>Moulded component range</figcaption></figure>
+      <figure class="shot"><img src="images/premolc/banner-1.webp" alt="Injection mould tooling — Premolc catalog shot" width="760" height="570" loading="lazy" decoding="async"><figcaption>Injection mould tooling</figcaption></figure>
+      <figure class="shot"><img src="images/premolc/banner-2.webp" alt="Injection mould tool halves — Premolc catalog shot" width="760" height="570" loading="lazy" decoding="async"><figcaption>Injection mould tool halves</figcaption></figure>
+  </div>
+</main>
+
+<footer>
+  <span>Viraj Soni</span>
+  <a href="index.html#creative">← Back to Portfolio</a>
+</footer>
+
+</body>
+</html>

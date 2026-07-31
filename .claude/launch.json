@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["-y", "serve", "E:/Builds/EarnScroll/website", "-l", "4399"],
       "port": 4399
+    },
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8123"],
+      "port": 8123
     }
   ]
 }

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Refresh Fragrances — product imagery by Viraj Soni. Photoshop composites and early generative AI, 600+ images produced.">
+<link rel="preload" href="fonts/syne-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<title>Refresh Fragrances — Viraj Soni</title>
+<style>
+/* Self-hosted, latin-subset. No third-party origin in the critical path. */
+@font-face{font-family:'Syne';src:url('fonts/syne-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap;}
+@font-face{font-family:'Syne';src:url('fonts/syne-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'Syne';src:url('fonts/syne-800.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap;}
+@font-face{font-family:'Space Grotesk';src:url('fonts/space-grotesk-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Space Grotesk';src:url('fonts/space-grotesk-500.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'Space Grotesk';src:url('fonts/space-grotesk-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('fonts/jetbrains-mono-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --accent: oklch(0.72 0.18 65);
+  --accent-dim: oklch(0.72 0.18 65 / 0.15);
+  --accent-glow: oklch(0.72 0.18 65 / 0.4);
+  --bg: #0a0a0f;
+  --bg2: #111118;
+  --bg3: #1a1a24;
+  --text: #e8e6e3;
+  --text-dim: #8a8a96;
+  --text-dimmer: #55556a;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--accent); color: var(--bg); }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: oklch(0.06 0.01 270 / 0.8);
+  backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid oklch(1 0 0 / 0.04);
+}
+.nav-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.02em; }
+.nav-logo span { color: var(--accent); }
+.nav-back {
+  font-size: 0.85rem; font-weight: 500; color: var(--text-dim);
+  transition: color 0.3s;
+}
+.nav-back:hover { color: var(--accent); }
+
+header.page-head {
+  padding: 160px 48px 64px;
+  position: relative;
+  overflow: hidden;
+}
+header.page-head::before {
+  content: '';
+  position: absolute;
+  top: -240px; right: -160px;
+  width: 640px; height: 640px;
+  background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
+  pointer-events: none;
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.eyebrow::before { content: ''; width: 32px; height: 1.5px; background: var(--accent); }
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  position: relative;
+}
+h1 em { font-style: italic; color: var(--accent); }
+.lede {
+  font-size: 1.02rem;
+  color: var(--text-dim);
+  max-width: 680px;
+  line-height: 1.8;
+  position: relative;
+}
+.lede strong { color: var(--text); font-weight: 600; }
+.stats {
+  display: flex; flex-wrap: wrap; gap: 40px;
+  margin-top: 48px;
+  position: relative;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dimmer);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+main { padding: 32px 48px 120px; }
+.grid {
+  columns: 3 300px;
+  column-gap: 20px;
+}
+.shot {
+  /* Off-screen figures skip layout, style and paint entirely. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 320px;
+  break-inside: avoid;
+  margin-bottom: 20px;
+  background: var(--bg2);
+  border: 1px solid oklch(1 0 0 / 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.4s, transform 0.4s;
+}
+.shot:hover { border-color: oklch(1 0 0 / 0.14); transform: translateY(-3px); }
+.shot img { width: 100%; height: auto; display: block; }
+.shot figcaption {
+  padding: 12px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dimmer);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+footer {
+  padding: 32px 48px;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  flex-wrap: wrap;
+  border-top: 1px solid oklch(1 0 0 / 0.06);
+  font-size: 0.8rem;
+  color: var(--text-dimmer);
+}
+footer a { color: var(--accent); }
+
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  header.page-head { padding: 120px 24px 48px; }
+  main { padding: 24px 24px 80px; }
+  .grid { columns: 2 160px; column-gap: 12px; }
+  .shot { margin-bottom: 12px; }
+  .stats { gap: 28px; }
+  footer { padding: 24px; }
+}
+</style>
+<noscript><style>.reveal,.reveal-left,.reveal-right{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Viraj<span>.</span>S</a>
+  <a href="index.html#creative" class="nav-back">← Back to Portfolio</a>
+</nav>
+
+<header class="page-head">
+  <div class="eyebrow">Client Work · Product Imagery</div>
+  <h1>Refresh <em>Fragrances</em></h1>
+  <p class="lede">
+    A fragranced soaps and Ayurveda cosmetics brand needed a full visual library — social content, website assets, and an identity revamp — without a studio budget or a shoot schedule.
+    <br><br>
+    I produced <strong>over 600 images</strong> for them, built before generative AI became plug-and-play. Raw model output back then wasn't usable on its own: every frame was rescued and finished by hand in <strong>Photoshop</strong> — compositing, correcting, and colour-matching until it read as a product shoot rather than a prompt. What follows is a selection.
+  </p>
+  <div class="stats">
+    <div>
+      <div class="stat-num">600+</div>
+      <div class="stat-label">Images Produced</div>
+    </div>
+    <div>
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Product Lines</div>
+    </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Hand-Finished</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="grid">
+      <figure class="shot"><img src="images/refresh/1-amber-rose-mk2.webp" alt="Amber Rose — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Amber Rose</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/2-mogra-mk2.webp" alt="Mogra — Refresh Fragrances product visual" width="542" height="720" loading="lazy" decoding="async"><figcaption>Mogra</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/4-blueberry-mk1.webp" alt="Blueberry — Refresh Fragrances product visual" width="540" height="720" loading="lazy" decoding="async"><figcaption>Blueberry</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/4-blueberry-mk2.webp" alt="Blueberry — Refresh Fragrances product visual" width="540" height="720" loading="lazy" decoding="async"><figcaption>Blueberry</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/5-cool-water-mk5.webp" alt="Cool Water — Refresh Fragrances product visual" width="720" height="405" loading="lazy" decoding="async"><figcaption>Cool Water</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/6-coconut-milk-honey-mk1.webp" alt="Coconut Milk &amp; Honey — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Coconut Milk &amp; Honey</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/7-coffee-mk1.webp" alt="Coffee — Refresh Fragrances product visual" width="540" height="720" loading="lazy" decoding="async"><figcaption>Coffee</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/8-green-tea-lemon-grass-mk1.webp" alt="Green Tea &amp; Lemongrass — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Green Tea &amp; Lemongrass</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/8-green-tea-lemon-grass-mk3.webp" alt="Green Tea &amp; Lemongrass — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Green Tea &amp; Lemongrass</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/9-honey-scrub-mk1.webp" alt="Honey Scrub — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Honey Scrub</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/9-honey-scrub-mk3.webp" alt="Honey Scrub — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Honey Scrub</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/11-multani-mitti-mk1.webp" alt="Multani Mitti — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Multani Mitti</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/11-multani-mitti-mk2.webp" alt="Multani Mitti — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Multani Mitti</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/11-multani-mitti-mk3.webp" alt="Multani Mitti — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Multani Mitti</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/13-almond-milk-saffron-mk2.webp" alt="Almond Milk &amp; Saffron — Refresh Fragrances product visual" width="720" height="542" loading="lazy" decoding="async"><figcaption>Almond Milk &amp; Saffron</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/13-almond-milk-saffron-mk3.webp" alt="Almond Milk &amp; Saffron — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Almond Milk &amp; Saffron</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/14-jasmine-mk1.webp" alt="Jasmine — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Jasmine</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/14-neem-scrub-mk1.webp" alt="Neem Scrub — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Neem Scrub</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/15-apricot-scrub-mk1.webp" alt="Apricot Scrub — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Apricot Scrub</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/15-apricot-scrub-mk3.webp" alt="Apricot Scrub — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Apricot Scrub</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/16-oudh-wood-mk1.webp" alt="Oudh Wood — Refresh Fragrances product visual" width="540" height="720" loading="lazy" decoding="async"><figcaption>Oudh Wood</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/16-oudh-wood-mk2.webp" alt="Oudh Wood — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Oudh Wood</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/17-kapoor-oil-mk3.webp" alt="Kapoor Oil — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Kapoor Oil</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/17-red-grapes-mk1.webp" alt="Red Grapes — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Red Grapes</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/17-red-grapes-mk2.webp" alt="Red Grapes — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Red Grapes</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/29-romantic-rose-mk1.webp" alt="Romantic Rose — Refresh Fragrances product visual" width="720" height="541" loading="lazy" decoding="async"><figcaption>Romantic Rose</figcaption></figure>
+      <figure class="shot"><img src="images/refresh/34-tea-tree-mk2.webp" alt="Tea Tree — Refresh Fragrances product visual" width="720" height="540" loading="lazy" decoding="async"><figcaption>Tea Tree</figcaption></figure>
+  </div>
+</main>
+
+<footer>
+  <span>Viraj Soni</span>
+  <a href="index.html#creative">← Back to Portfolio</a>
+</footer>
+
+</body>
+</html>
