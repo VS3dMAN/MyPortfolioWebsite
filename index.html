@@ -994,7 +994,29 @@ footer {
   .portrait-frame { width: 240px; height: 300px; }
   .portrait-decor { width: 240px; height: 300px; }
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
-  .project-card { grid-template-columns: 1fr; }
+  /* Stacked, the art fell to the bottom of the card. Flatten the wrapper so the
+     visual can sit above the title and the CTA can share the title's row. */
+  .project-card {
+    grid-template-columns: 1fr auto;
+    gap: 14px 12px;
+    align-items: start;
+    padding: 24px;
+  }
+  .project-card > div:first-child { display: contents; }
+  .project-number { grid-column: 1 / -1; grid-row: 1; margin-bottom: 0; }
+  .project-tags   { grid-column: 1 / -1; grid-row: 2; margin-bottom: 0; }
+  .project-visual { grid-column: 1 / -1; grid-row: 3; }
+  .project-name   { grid-column: 1; grid-row: 4; margin-bottom: 0; align-self: center; }
+  .btn-see        { grid-column: 2; grid-row: 4; margin-bottom: 0; align-self: center; }
+  .project-desc   { grid-column: 1 / -1; grid-row: 5; margin-bottom: 0; }
+  .project-tech   { grid-column: 1 / -1; grid-row: 6; }
+  /* Full-bleed to the card edges — a phone is narrow enough already. */
+  .project-visual {
+    width: auto;
+    margin-left: -24px;
+    margin-right: -24px;
+    border-radius: 0;
+  }
   .creative-grid { grid-template-columns: 1fr; }
   .exp-item { grid-template-columns: 1fr; gap: 8px; }
   .contact-section { padding: 100px 24px; }
@@ -1017,8 +1039,12 @@ footer {
   .btn-primary, .btn-secondary { flex: 1 1 auto; justify-content: center; }
   .portrait-frame, .portrait-decor { width: 200px; height: 250px; }
   .section-title { font-size: 1.75rem; }
+  .project-card { padding: 20px; gap: 12px 10px; }
+  .project-visual { margin-left: -20px; margin-right: -20px; }
   .project-number { font-size: 2.75rem; }
-  .project-name { font-size: 1.35rem; }
+  .project-name { font-size: 1.3rem; }
+  /* Trim the CTA so a long project name keeps a usable share of the row. */
+  .btn-see { padding: 10px 16px; font-size: 0.8rem; }
   .ai-band { padding: 56px 20px; }
   .ai-lead { font-size: 1.2rem; }
   .tool-grid { grid-template-columns: repeat(2, 1fr); }
