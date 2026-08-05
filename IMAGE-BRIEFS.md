@@ -71,12 +71,12 @@ No on-screen text.
 
 ---
 
-## 5 & 6. EarnScroll and Coup — optional replacements
+## 5 & 6. Kenri and Coup — optional replacements
 
 These two cards already have artwork. Only do these if you want them restyled to match the new
 visuals. Same size and crop as #1 and #2: **1600 × 900 px (16:9)**.
 
-**EarnScroll:** An Android app that makes you earn your screen time with real exercise — squats,
+**Kenri:** An Android app that makes you earn your screen time with real exercise — squats,
 pushups and planks detected on-device by the camera, and distracting apps get blocked when your
 earned time runs out. *Feel:* discipline meeting a polished consumer app.
 
