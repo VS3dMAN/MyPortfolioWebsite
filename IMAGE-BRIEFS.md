@@ -85,6 +85,23 @@ deception, tension, medieval-strategy atmosphere.
 
 ---
 
+## 7. RCB Platform — project card  *(placeholder in place: `images/rcb-platform.webp`)*
+
+**Size:** 1280 × 720 px (16:9). Displayed at about 506 × 280 px.
+
+**Best option, no ChatGPT needed:** Take a real screenshot. The current art is a stylised mock built
+offline from the club logo. A real capture of rcbibwewadipune.org beats it: the admin member list
+with names blurred, or the trivia screen on a phone, laid over the homepage. Save it over
+`images/rcb-platform.webp`.
+
+**Subject, if generating instead:** The production web platform of a Rotary youth club. It covers
+member approvals, a directory, event sign-ups with QR passes, and a live trivia game for meetings.
+It is real software that a real organisation runs on every week.
+
+**Feel:** Community meets control room. Warm cranberry and gold on near-black, calm and organised.
+
+---
+
 ## Where the files go
 
 Save them into `images/` and tell me the filenames — I'll compress them to WebP and wire them in.

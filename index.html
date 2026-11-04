@@ -956,6 +956,115 @@ footer {
   .hero::before, .contact-section::before, .scroll-line { animation: none; }
 }
 
+/* ========== HERO PROOF STRIP ========== */
+.proof-strip {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 28px;
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid oklch(1 0 0 / 0.08);
+  max-width: 560px;
+}
+.proof-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.proof-num em { font-style: normal; color: var(--accent); }
+.proof-label {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dimmer);
+  line-height: 1.5;
+}
+
+/* ========== CLIENT WORK ========== */
+.client-intro {
+  max-width: 720px;
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin: -32px 0 48px;
+}
+.case-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding: 48px;
+  background: var(--bg2);
+  border: 1px solid oklch(0.72 0.18 65 / 0.22);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.case-card > * { min-width: 0; }
+.case-card + .case-card { margin-top: 32px; }
+.case-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+}
+.case-client {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.case-card .project-desc strong { color: var(--text); font-weight: 600; }
+.case-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.case-metrics {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+  align-content: start;
+}
+.metric {
+  background: var(--bg3);
+  border: 1px solid oklch(1 0 0 / 0.06);
+  border-radius: 12px;
+  padding: 20px;
+}
+.metric.wide { grid-column: 1 / -1; }
+.metric-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.metric.hot .metric-num { color: var(--accent); }
+.metric-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.metric-src {
+  grid-column: 1 / -1;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dimmer);
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
   nav { padding: 16px 24px; }
@@ -1025,6 +1134,10 @@ footer {
   .ai-band { padding: 72px 24px; }
   .ai-grid { grid-template-columns: 1fr; gap: 48px; }
   .tool-grid { grid-template-columns: repeat(3, 1fr); }
+  .proof-strip { grid-template-columns: repeat(2, 1fr); gap: 22px 28px; max-width: none; }
+  .scroll-hint { display: none; }
+  .case-card { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 24px; }
+  .client-intro { margin: -24px 0 32px; }
   /* 44px is the minimum comfortable thumb target. */
   .btn-primary, .btn-secondary, .btn-see, .btn-see-sm { min-height: 44px; }
 }
@@ -1048,6 +1161,8 @@ footer {
   .ai-band { padding: 56px 20px; }
   .ai-lead { font-size: 1.2rem; }
   .tool-grid { grid-template-columns: repeat(2, 1fr); }
+  .case-card { padding: 20px; }
+  .metric { padding: 16px; }
   .carousel-track img { height: 140px; }
   .carousel.compact .carousel-track img { height: 125px; }
   .contact-section { padding: 80px 20px; }
@@ -1066,6 +1181,7 @@ footer {
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links" id="navLinks">
+    <a href="#clients">Clients</a>
     <a href="#ai">AI</a>
     <a href="#projects">Projects</a>
     <a href="#creative">Creative Work</a>
@@ -1088,10 +1204,16 @@ footer {
     <div class="hero-label reveal stagger-1">Portfolio</div>
     <h1 class="hero-name reveal stagger-2">Viraj <em>Soni</em></h1>
     <p class="hero-tagline reveal stagger-3"><strong>0-to-1 generalist with a builder's instinct.</strong> I move across AI, full-stack development, and photography — not because I can't pick one, but because the best work happens where they overlap.</p>
-    <p class="hero-intro reveal stagger-4">I've designed interactive web platforms, built fully functional complex Android Apps, edited commercial video for paying clients, and co-founded an agency — often all at once. All of it self-taught. All of it shipped and deployed.</p>
+    <p class="hero-intro reveal stagger-4">I co-founded an agency that took a client studio past a million organic views in 90 days. Alongside it I build Android apps, live multiplayer games, and the production platform my Rotaract club runs on — often all in the same week. All of it self-taught. All of it shipped.</p>
     <div class="hero-cta reveal stagger-5">
-      <a href="#projects" class="btn-primary">See My Work ↓</a>
+      <a href="#clients" class="btn-primary">See the Results ↓</a>
       <a href="#contact" class="btn-secondary">Get in Touch</a>
+    </div>
+    <div class="proof-strip reveal stagger-5" aria-label="Highlights">
+      <div><span class="proof-num" data-count="1.1" data-dec="1" data-suffix="M">1.1M</span><span class="proof-label">Organic views<br>for one client · 90 days</span></div>
+      <div><span class="proof-num" data-count="106">106</span><span class="proof-label">Paid leads<br>at ₹132–177 each</span></div>
+      <div><span class="proof-num" data-count="10" data-suffix="+">10+</span><span class="proof-label">Agency clients<br>served</span></div>
+      <div><span class="proof-num" data-count="4">4</span><span class="proof-label">Products live<br>right now</span></div>
     </div>
   </div>
   <div class="hero-visual reveal-right stagger-3">
@@ -1125,17 +1247,55 @@ footer {
 <symbol id="i-make" viewBox="0 0 24 24"><path d="M13.38 3.498c-.27 0-.511.19-.566.465L9.85 18.986a.578.578 0 0 0 .453.678l4.095.826a.58.58 0 0 0 .682-.455l2.963-15.021a.578.578 0 0 0-.453-.678l-4.096-.826a.589.589 0 0 0-.113-.012zm-5.876.098a.576.576 0 0 0-.516.318L.062 17.697a.575.575 0 0 0 .256.774l3.733 1.877a.578.578 0 0 0 .775-.258l6.926-13.781a.577.577 0 0 0-.256-.776L7.762 3.658a.571.571 0 0 0-.258-.062zm11.74.115a.576.576 0 0 0-.576.576v15.426c0 .318.258.578.576.578h4.178a.58.58 0 0 0 .578-.578V4.287a.578.578 0 0 0-.578-.576Z"/></symbol>
 </svg>
 
+<!-- CLIENT WORK -->
+<section id="clients">
+  <div class="section-header reveal">
+    <span class="section-number">01</span>
+    <h2 class="section-title">Client Work</h2>
+    <div class="section-line"></div>
+  </div>
+  <p class="client-intro reveal">Paid work, measured in the client's numbers, not mine. Everything here is pulled straight from the client's own Instagram Insights and Meta Ads Manager — unedited.</p>
+
+  <div class="case-card reveal">
+    <div>
+      <div class="case-client">24x7 Productions · Interior design studios · Pune</div>
+      <div class="project-tags">
+        <span class="project-tag">Content Engine</span>
+        <span class="project-tag">Paid Ads</span>
+        <span class="project-tag">Lead Gen</span>
+      </div>
+      <h3 class="project-name">From Reels to Signed Projects</h3>
+      <p class="project-desc">Interior designers sell five- and six-figure projects, so one closed client is worth months of content. We built the agency around that one fact: <strong>one industry, a three-person team, and every shoot, edit and call done by us.</strong><br><br>For <strong>Hauspire Design Studio</strong> we ran the account on organic reels alone. In 90 days that meant 1.1M views, and 96.1% of the people watching had never followed the studio before. Then came 76 people tapping the studio's address and <strong>a signed client from content alone</strong>. On paid, Meta lead campaigns brought in 34 leads at ₹132 each for <strong>Hauspire Luxury Interiors</strong> in Balewadi, and 72 leads at ₹177 each for <strong>Urbanline Interiors</strong> in Kothrud.<br><br>I built the sales side too: the pitch deck, the three-tier engagement page, and a video portfolio cut by about 99% in page weight.</p>
+      <div class="case-links">
+        <a href="https://24x7p-pitchdeck.vercel.app/deck" target="_blank" rel="noopener" class="btn-see-sm">See the Deck ↗</a>
+        <a href="https://24x7p-pitchdeck.vercel.app/" target="_blank" rel="noopener" class="btn-see-sm alt">Engagement Tiers ↗</a>
+        <a href="https://24x7-p1.vercel.app/" target="_blank" rel="noopener" class="btn-see-sm alt">Video Portfolio ↗</a>
+      </div>
+    </div>
+    <div class="case-metrics">
+      <div class="metric hot wide"><span class="metric-num">1,118,933</span><span class="metric-label">Organic views in 90 days — zero ad spend</span></div>
+      <div class="metric"><span class="metric-num">412K</span><span class="metric-label">People reached</span></div>
+      <div class="metric"><span class="metric-num">96.1%</span><span class="metric-label">Of viewers were new to the studio</span></div>
+      <div class="metric"><span class="metric-num">+18.4%</span><span class="metric-label">Followers, 3,055 → 3,617</span></div>
+      <div class="metric"><span class="metric-num">9×</span><span class="metric-label">Reach of reels over posts (120K vs 14K)</span></div>
+      <div class="metric hot"><span class="metric-num">106</span><span class="metric-label">Paid leads across two studios, ₹132–177 each</span></div>
+      <div class="metric hot"><span class="metric-num">1</span><span class="metric-label">Signed client from organic content alone</span></div>
+      <div class="metric-src">Source: client Instagram Insights &amp; Meta Ads Manager · Jun–Sep 2026</div>
+    </div>
+  </div>
+</section>
+
 <!-- AI LAYER -->
 <section class="ai-band" id="ai">
   <div class="section-header reveal">
-    <span class="section-number">01</span>
+    <span class="section-number">02</span>
     <h2 class="section-title">How I Work With AI</h2>
     <div class="section-line"></div>
   </div>
   <div class="ai-grid">
     <div>
-      <p class="ai-lead reveal">The work I'm proudest of <em>isn't on this page</em> — it's under contract, it isn't finished, and it doesn't go here until it's live.
-        <span class="ai-lead-sub">What's below came before it: built, linked, open to click through. It still holds up. It just isn't where I am anymore.</span>
+      <p class="ai-lead reveal">The numbers above are what the work is <em>for</em>. Everything I build, I build with AI as the engine — and I still own every line it writes.
+        <span class="ai-lead-sub">What's below is built, linked, and open to click through. My newest client builds are under contract and land here as they go live.</span>
       </p>
       <div class="ai-rule reveal stagger-1"></div>
       <p class="ai-copy reveal stagger-1">I build with Claude the way an engineer builds with a compiler — not as a novelty, but as infrastructure. <strong>Most people prompt. I architect the context</strong>, constrain the model, and own what comes out the other side.</p>
@@ -1171,7 +1331,7 @@ footer {
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-header reveal">
-    <span class="section-number">02</span>
+    <span class="section-number">03</span>
     <h2 class="section-title">Things I've Built</h2>
     <div class="section-line"></div>
   </div>
@@ -1185,43 +1345,23 @@ footer {
           <span class="project-tag">Health Tech</span>
           <span class="project-tag">AI-Built</span>
         </div>
-        <h3 class="project-name">EarnScroll</h3>
-        <p class="project-desc">A mobile app that flips the attention economy — earn screen time by completing exercise. Squats, pushups, and planks unlock your apps.<br><br>This isn't a weekend hack. It's a fully production-ready Android application with integrated payment gateways, complete legal documentation, and deep system-level access that controls which apps you can open and when. Exercise detection, a real-time reward engine, onboarding flows, edge-case handling — every layer you'd expect from a shipped consumer product, built and deployed solo from first commit to Play Store.</p>
+        <h3 class="project-name">Kenri</h3>
+        <p class="project-desc">A mobile app that flips the attention economy — you earn screen time by exercising. Squats, pushups and planks unlock your apps. (It started life as EarnScroll.)<br><br>This isn't a weekend hack. It's a production-ready Android app. On-device pose detection counts every rep through the camera, and an Android accessibility service keeps distracting apps locked until the time is earned. Around that sit cloud sign-in, full legal documentation and a live landing page with a launch waitlist. It has every layer you'd expect from a real consumer product, and I built it solo from first commit to Play Store ready.</p>
         <a href="https://earnscroll-website.vercel.app/" target="_blank" rel="noopener" class="btn-see">See Now ↗</a>
         <div class="project-tech">
           <span class="tech-pill">React Native</span>
           <span class="tech-pill">Expo</span>
+          <span class="tech-pill">TFLite</span>
           <span class="tech-pill">Claude Code</span>
           <span class="tech-pill">Google Antigravity</span>
         </div>
       </div>
-      <div class="project-visual"><img src="images/earnscroll.webp" alt="EarnScroll — Android screen-time app banner" width="1280" height="720" loading="lazy" decoding="async"></div>
+      <div class="project-visual"><img src="images/earnscroll.webp" alt="Kenri (formerly EarnScroll) — Android screen-time app banner" width="1280" height="720" loading="lazy" decoding="async"></div>
     </div>
 
     <div class="project-card reveal">
       <div>
         <div class="project-number">02</div>
-        <div class="project-tags">
-          <span class="project-tag">Full-Stack</span>
-          <span class="project-tag">Multiplayer</span>
-          <span class="project-tag">Real-Time</span>
-        </div>
-        <h3 class="project-name">Coup</h3>
-        <p class="project-desc">The classic bluffing card game — rebuilt for the browser, end to end. Full-stack with a Node.js backend, WebSocket layer handling real-time game state across all connected players, and a clean frontend keeping every action, bluff, and challenge in sync without a single page reload.</p>
-        <a href="https://coup-client-pi.vercel.app/" target="_blank" rel="noopener" class="btn-see">See Now ↗</a>
-        <div class="project-tech">
-          <span class="tech-pill">Node.js</span>
-          <span class="tech-pill">WebSockets</span>
-          <span class="tech-pill">Claude Code</span>
-          <span class="tech-pill">Google Antigravity</span>
-        </div>
-      </div>
-      <div class="project-visual"><img src="images/coup.webp" alt="Coup — browser multiplayer card game poster" width="1280" height="720" loading="lazy" decoding="async"></div>
-    </div>
-
-    <div class="project-card reveal">
-      <div>
-        <div class="project-number">03</div>
         <div class="project-tags">
           <span class="project-tag">Board Game</span>
           <span class="project-tag">Multiplayer</span>
@@ -1241,7 +1381,49 @@ footer {
 
     <div class="project-card reveal">
       <div>
+        <div class="project-number">03</div>
+        <div class="project-tags">
+          <span class="project-tag">Production Platform</span>
+          <span class="project-tag">Team Build</span>
+          <span class="project-tag">Live</span>
+        </div>
+        <h3 class="project-name">RCB Platform</h3>
+        <p class="project-desc">The web platform my Rotaract club runs on, live at rcbibwewadipune.org. It handles member signups with approval workflows, a member and business directory, event registrations with QR passes, reimbursements, and the admin console that ties it all together.<br><br>My share: the admin and member-approval flows, the Supabase row-level-security lockdown, every live event form from the 10th Installation Ceremony RSVP to the Garba Workshop, and a password-gated trivia game with its own admin editor. It's built like a real engineering team works: a protected main branch, two reviews on every merge, and staging before production.</p>
+        <a href="https://www.rcbibwewadipune.org/" target="_blank" rel="noopener" class="btn-see">See Now ↗</a>
+        <div class="project-tech">
+          <span class="tech-pill">Next.js 16</span>
+          <span class="tech-pill">Supabase</span>
+          <span class="tech-pill">Turborepo</span>
+          <span class="tech-pill">Claude Code</span>
+        </div>
+      </div>
+      <div class="project-visual"><img src="images/rcb-platform.webp" alt="RCB Platform — Rotaract club admin console and trivia app" width="1280" height="720" loading="lazy" decoding="async"></div>
+    </div>
+
+    <div class="project-card reveal">
+      <div>
         <div class="project-number">04</div>
+        <div class="project-tags">
+          <span class="project-tag">Full-Stack</span>
+          <span class="project-tag">Multiplayer</span>
+          <span class="project-tag">Real-Time</span>
+        </div>
+        <h3 class="project-name">Coup</h3>
+        <p class="project-desc">The classic bluffing card game — rebuilt for the browser, end to end. Full-stack with a Node.js backend, WebSocket layer handling real-time game state across all connected players, and a clean frontend keeping every action, bluff, and challenge in sync without a single page reload.<br><br>Then I hardened it for real networks. A watchdog and recovery layer means a dropped socket or a server cold start doesn't kill the game in progress.</p>
+        <a href="https://coup-client-pi.vercel.app/" target="_blank" rel="noopener" class="btn-see">See Now ↗</a>
+        <div class="project-tech">
+          <span class="tech-pill">Node.js</span>
+          <span class="tech-pill">WebSockets</span>
+          <span class="tech-pill">Claude Code</span>
+          <span class="tech-pill">Google Antigravity</span>
+        </div>
+      </div>
+      <div class="project-visual"><img src="images/coup.webp" alt="Coup — browser multiplayer card game poster" width="1280" height="720" loading="lazy" decoding="async"></div>
+    </div>
+
+    <div class="project-card reveal">
+      <div>
+        <div class="project-number">05</div>
         <div class="project-tags">
           <span class="project-tag">Hackathon Winner</span>
           <span class="project-tag">Platform</span>
@@ -1259,13 +1441,13 @@ footer {
       <div class="project-visual"><img src="images/radius.webp" alt="Radius — hyperlocal events platform key visual" width="1280" height="720" loading="lazy" decoding="async"></div>
     </div>
 
-  </div>
+</div>
 </section>
 
 <!-- CREATIVE WORK -->
 <section id="creative">
   <div class="section-header reveal">
-    <span class="section-number">03</span>
+    <span class="section-number">04</span>
     <h2 class="section-title">Creative Work</h2>
     <div class="section-line"></div>
   </div>
@@ -1348,7 +1530,7 @@ footer {
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-header reveal">
-    <span class="section-number">04</span>
+    <span class="section-number">05</span>
     <h2 class="section-title">Where I've Operated</h2>
     <div class="section-line"></div>
   </div>
@@ -1367,7 +1549,7 @@ footer {
       <div>
         <div class="exp-role">Co-Founder</div>
         <div class="exp-org">24x7 Productions</div>
-        <p class="exp-desc">Built from zero — client acquisition, team hiring, content pipelines, and delivery. 10+ interior design clients served. Every part of the business touched. See the work: <a href="https://24x7-p1.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent)">direct portfolio</a> · <a href="https://24x7-p3.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent)">organised portfolio</a>.</p>
+        <p class="exp-desc">Built from zero with a three-person team: client acquisition, hiring, shooting, editing, delivery and the sales material. 10+ interior design clients served, including a studio taken to 1.1M organic views in 90 days and lead campaigns at ₹132–177 a lead (<a href="#clients" style="color:var(--accent)">full results above</a>). See the work: <a href="https://24x7-p1.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent)">direct portfolio</a> · <a href="https://24x7-p3.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent)">organised portfolio</a>.</p>
         <span class="exp-tag-inline">Growth & GTM</span>
       </div>
     </div>
@@ -1385,7 +1567,7 @@ footer {
       <div>
         <div class="exp-role">Board of Directors — Two Terms</div>
         <div class="exp-org"><a href="https://www.rcbibwewadipune.org/" target="_blank" rel="noopener">Rotaract Club of Bibwewadi ↗</a></div>
-        <p class="exp-desc">Elected to the board for two consecutive terms (2025–26 and 2026–27) — steering club direction while still doing the on-ground work: event logistics, flyer design, and execution.</p>
+        <p class="exp-desc">Elected to the board for two consecutive terms (2025–26 and 2026–27). I steer club direction while still doing the on-ground work: event logistics, flyer design and execution. I also co-built the <a href="#projects" style="color:var(--accent)">web platform the club runs on</a>.</p>
         <span class="exp-tag-inline">Leadership</span>
       </div>
     </div>
@@ -1395,7 +1577,7 @@ footer {
 <!-- ABOUT -->
 <section id="about">
   <div class="section-header reveal">
-    <span class="section-number">05</span>
+    <span class="section-number">06</span>
     <h2 class="section-title">About</h2>
     <div class="section-line"></div>
   </div>
@@ -1426,7 +1608,7 @@ footer {
         <span class="fact-arrow">→</span>
         <div class="fact-text">
           <strong>Co-Founder — 24x7 Productions</strong>
-          Social media agency — 10+ interior design clients
+          Social media agency — 10+ interior design clients · 1.1M organic views for one in 90 days
         </div>
       </div>
       <div class="fact-item">
@@ -1456,7 +1638,7 @@ footer {
 
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
-  <div class="contact-eyebrow reveal">06 · Let's Talk</div>
+  <div class="contact-eyebrow reveal">07 · Let's Talk</div>
   <h2 class="contact-headline reveal stagger-1">Open to the <em>Right Room</em></h2>
   <p class="contact-blurb reveal stagger-2">I'm most useful where the job description doesn't fully exist yet — somewhere between creative vision and technical execution. Whether you're building an AI tool, need a cinematic identity, or just need someone who figures things out — let's talk.</p>
   <a href="mailto:virajsoni24x7@gmail.com" class="contact-email reveal stagger-3">virajsoni24x7@gmail.com →</a>
@@ -1487,12 +1669,15 @@ footer {
         "https://coup-client-pi.vercel.app/",
         "https://tp-1-sigma.vercel.app/",
         "https://sanshx.com/",
+        "https://24x7p-pitchdeck.vercel.app/deck",
         "https://www.rcbibwewadipune.org/"
       ]
     },
     {
       "@type": "CreativeWork",
-      "name": "EarnScroll",
+      "name": "Kenri",
+      "alternateName": "EarnScroll",
+      "url": "https://earnscroll-website.vercel.app/",
       "creator": { "@id": "#viraj" },
       "description": "Android app that makes screen time something you earn — on-device camera pose detection counts squats, pushups and planks, and distracting apps stay blocked until the earned time is banked."
     },
@@ -1509,6 +1694,20 @@ footer {
       "url": "https://splendor-duel.jvtandbros.workers.dev",
       "creator": { "@id": "#viraj" },
       "description": "The gem-trading duel rebuilt for the browser and extended to 2–8 players, free-for-all or teams, on a rules engine parameterised by seat count. Fuzz-tested for deadlocks, chaos-tested at the UI, and balance-proved by a heuristic bot across 800 games per table size. Runs serverless on Cloudflare Workers."
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "RCB Platform",
+      "url": "https://www.rcbibwewadipune.org/",
+      "creator": { "@id": "#viraj" },
+      "description": "Production web platform for the Rotaract Club of Bibwewadi — member approvals, directory, event registrations with QR passes, reimbursements, admin console and a live trivia game. Next.js 16, Supabase with row-level security, Turborepo."
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "24x7 Productions client growth",
+      "url": "https://24x7p-pitchdeck.vercel.app/deck",
+      "creator": { "@id": "#viraj" },
+      "description": "Content and paid-ads work for Pune interior design studios: 1,118,933 organic views in 90 days for Hauspire Design Studio (96.1% non-followers, one client signed from organic content), plus Meta lead campaigns delivering 34 leads at ₹132 for Hauspire Luxury Interiors and 72 leads at ₹177 for Urbanline Interiors."
     },
     {
       "@type": "CreativeWork",
@@ -1568,6 +1767,26 @@ function initReveal() {
   addEventListener('scroll', onScroll, { passive: true });
 }
 
+// === PROOF STRIP COUNT-UP ===
+// Final values are in the HTML, so no-JS and reduced-motion visitors see the real numbers.
+function initCountUp() {
+  const els = document.querySelectorAll('.proof-num[data-count]');
+  if (!els.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const run = el => {
+    const to = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0), suf = el.dataset.suffix || '';
+    const t0 = performance.now(), dur = 1400;
+    const tick = now => {
+      const k = Math.min(1, (now - t0) / dur), v = to * (1 - Math.pow(1 - k, 3));
+      el.textContent = v.toFixed(dec) + suf;
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const obs = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { obs.unobserve(e.target); run(e.target); }
+  }), { threshold: 0.6 });
+  els.forEach(el => obs.observe(el));
+}
 // === NAV HIDE ON SCROLL ===
 let lastScroll = 0;
 function initNav() {
@@ -1732,6 +1951,7 @@ function setupCarousel(el) {
 // === INIT ===
 initReveal();
 initNav();
+initCountUp();
 initCarousel();
 initPrefetch();
 // Pointer-driven effects only on devices with a fine pointer — saves work on phones
